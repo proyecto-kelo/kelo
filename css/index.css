@@ -1,0 +1,55 @@
+body{
+	background: pink;
+}
+.img_escudo{
+	margin: 20px;
+	padding: 20px;
+	width: 200px;
+	height: 200px;
+}
+
+/** MENU*/
+#menu {
+	width:60%;
+	font-family:Arial, Helvetica, sans-serif;
+	
+}
+ul, ol {
+	list-style:none;
+}       
+#nav > li {
+	float:left;
+}
+
+#nav li {
+	width:26%;
+	margin: 7px;
+}
+           
+#nav li a {
+	-webkit-border-radius: 20px 18px;
+	background-color:#AA0606;
+	color:#fff;
+	text-decoration:none;
+	padding:10px 0px;
+	display:block;
+	width:100%;
+}
+            
+#nav li a:hover {
+	background-color:#434343;
+}
+            
+#nav li ul {
+	display:none;
+	position:absolute;
+	width:100%;
+}
+            
+#nav li:hover > ul {
+	display:block;
+}
+#nav ul>li{
+
+}
+/** */
