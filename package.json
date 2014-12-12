@@ -1,13 +1,15 @@
 {
-	"name": "APIRest",
-	"version": "0.0.1",
-	"description": "Kelo - Vinos",
-	"main": "server.js",
-	"dependencies": {
-		"express": "3.4.8",
-		"express-session": "~1.7.6",
-		"mongoose": "3.6.11",
-		"cookie-parser": "~1.0.1",
-    	"body-parser": "~1.0.0"
-	}
+  "name": "APIRest",
+  "version": "0.0.1",
+  "description": "Kelo - Vinos",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "express": "3.4.8",
+    "express-session": "~1.7.6",
+    "mongoose": "3.6.11",
+    "mysql": "^2.5.3",
+    "sequelize": "^2.0.0-rc3"
+  }
 }
