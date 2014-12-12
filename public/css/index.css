@@ -7,7 +7,6 @@ body{
 	width: 200px;
 	height: 200px;
 }
-
 /** MENU*/
 #menu {
 	width:60%;
@@ -57,7 +56,7 @@ ul, ol {
 #cuadrados{
 
 	clear:both;
-	min-width: 750px;
+	min-width: 700px;
 	padding-top: 20px;
 	margin-bottom: -33px;
 		display: -webkit-box;
