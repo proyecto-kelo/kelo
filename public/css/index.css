@@ -1,6 +1,28 @@
 body{
 	/*background-image: url(../images/fondo.jpg);*/
 }
+a {
+    text-decoration: none;
+}
+/* unvisited link */
+a:link {
+    color: #9C1350;
+}
+
+/* visited link */
+a:visited {
+    color: #9C1350;
+}
+
+/* mouse over link */
+a:hover {
+    color: #000000;
+}
+
+/* selected link */
+a:active {
+    color: #000000;
+}
 #header{
 	width: 40%;
 	margin-right: 10%;
@@ -12,7 +34,7 @@ body{
 	margin-left: -50px;
 	padding-top: 30px;
 	height: 600px;
-	background: url(../images/fondo6.jpg) no-repeat; 
+	background: url(../images/fondo3.png) no-repeat; 
 	background-size: 100%;
 }
 /** MENU*/
@@ -35,7 +57,7 @@ ul, ol {
 	border: solid 0.8px #000000;
 	text-align: center;
 	-webkit-border-radius: 20px 18px;
-	background-color:#d52349;
+	background-color:#9C1350;
 	color:#fff;
 	text-decoration:none;
 	padding:10px 0px;
@@ -43,7 +65,7 @@ ul, ol {
 	width:100%;
 }            
 #nav li a:hover {
-	background-color:#B52645;
+	background-color:#780E3E;
 }
             
 #nav li ul {
@@ -80,7 +102,7 @@ ul, ol {
  	background-position: 50% 50%;
 	padding: 20px;
 	margin: 10px;
-	width: 300px;
+	width: 240px;
 	height:230px;
 	font: 28px Tahoma;
 	-webkit-box-flex: 1;
@@ -105,7 +127,7 @@ ul, ol {
 	padding: 20px;
 	background-position: 50% 50%;
 	margin: 10px;
-	width: 300px;
+	width: 240px;
 	height:230px;
 	font: 28px Tahoma;
 	-webkit-box-flex: 1;
@@ -131,7 +153,7 @@ ul, ol {
 	background-position: 50% 50%;
 	padding: 20px;
 	margin: 10px;
-	width: 300px;
+	width: 240px;
 	height:230px;
 	font: 28px Tahoma;
 	-webkit-box-flex: 1;
@@ -156,7 +178,7 @@ ul, ol {
 	width: 100%;
 	background: #1d1d1d;
 	margin: 0px;
-	color: #d52349;
+	color: #780E3E;
 	text-align: center;
 	word-spacing: 36px;
 	font: italic bold 40px 'Source Sans Pro';
@@ -216,16 +238,16 @@ ul, ol {
 		color: #ffffff;
 		border: solid 1px #000000;
 		background: #d52349;
-		background: -webkit-gradient(linear, left top, left bottom, from(#d52349), to(#d52349));
-		background: -moz-linear-gradient(top,  #d52349,  #d52349);
+		background: -webkit-gradient(linear, left top, left bottom, from(#9C1350), to(#9C1350));
+		background: -moz-linear-gradient(top,  #9C1350,  #9C1350);
 		border-top-right-radius: 5px 5px;
 		border-bottom-right-radius: 5px 5px;
 	}
 	.tfbutton:hover {
 		text-decoration: none;
 		background: #007ead;
-		background: -webkit-gradient(linear, left top, left bottom, from(#B52645), to(#B52645));
-		background: -moz-linear-gradient(top,  #B52645,  #B52645);
+		background: -webkit-gradient(linear, left top, left bottom, from(#780E3E), to(#780E3E));
+		background: -moz-linear-gradient(top,  #780E3E,  #780E3E);
 	}
 	/* Fixes submit button height problem in Firefox */
 	.tfbutton::-moz-focus-inner {
