@@ -1,11 +1,13 @@
 body{
-	background: white;
+	/*background-image: url(../images/fondo.jpg);*/
 }
-.img_escudo{
-	margin: 20px;
-	padding: 20px;
-	width: 200px;
-	height: 200px;
+#kk{
+	margin: -10px;
+	padding-top: 30px;
+	height: 600px;
+	background: url(../images/fondo.jpg) ; 
+	background-size: 100%;
+ 	
 }
 /** MENU*/
 #menu {
@@ -23,8 +25,7 @@ ul, ol {
 #nav li {
 	width:26%;
 	margin: 7px;
-}
-           
+}        
 #nav li a {
 	-webkit-border-radius: 20px 18px;
 	background-color:#AA0606;
@@ -33,8 +34,7 @@ ul, ol {
 	padding:10px 0px;
 	display:block;
 	width:100%;
-}
-            
+}            
 #nav li a:hover {
 	background-color:#434343;
 }
@@ -43,8 +43,7 @@ ul, ol {
 	display:none;
 	position:absolute;
 	width:100%;
-}
-            
+}           
 #nav li:hover > ul {
 	display:block;
 }
@@ -54,38 +53,29 @@ ul, ol {
 /** */
 /** CONTENIDO */
 #cuadrados{
-
 	clear:both;
 	min-width: 700px;
-	padding-top: 20px;
+	padding-top: 50px;
 	margin-bottom: -33px;
-		display: -webkit-box;
+	display: -webkit-box;
 	-webkit-box-orient: horizontal;
 	-webkit-box-pack:center;
 	height:450px;
 	-webkit-box-flex: 1;
 }
-
 #box1{
-
 	cursor:pointer;
 	min-width: 175px;
-
-
 	text-align: center;
-	
 	background-image: url("../images/escudo_navarra.png" ) ;
 	background-size: 40% 70%;
 	background-repeat: no-repeat;
- background-position: 50% 50%;
-
-
+ 	background-position: 50% 50%;
 	padding: 20px;
 	margin: 10px;
 	width: 300px;
 	height:230px;
 	font: 28px Tahoma;
-
 	-webkit-box-flex: 1;
 	-webkit-box-align:center;
 	-webkit-transition: -webkit-transform 0.5s;
@@ -93,72 +83,50 @@ ul, ol {
 	-webkit-box-shadow: 0px -10px 16px -5px rgba(50, 50, 50, 0.3);
 	-moz-box-shadow:    0px -10px 16px -5px rgba(50, 50, 50, 0.3);
 	box-shadow:         0px -10px 16px -5px rgba(50, 50, 50, 0.3);
-
 }
-
 #box1:hover{
-
 	-webkit-transform:scale(1.05);
-
 	opacity: 1;	
 }
-
-
-
 #box2{
-cursor:pointer;
+	cursor:pointer;
 	min-width: 175px;
-
 	text-align: center;
-	
 	background-image: url("../images/escudo_rioja.png" );
 	background-size: 40% 70%;
 	background-repeat: no-repeat;
 	padding: 20px;
-	 background-position: 50% 50%;
-
-
+	background-position: 50% 50%;
 	margin: 10px;
 	width: 300px;
 	height:230px;
 	font: 28px Tahoma;
-
 	-webkit-box-flex: 1;
 	-webkit-box-align:center;
 	-webkit-transition: -webkit-transform 0.5s;
-
 	/*sombra*/
 	-webkit-box-shadow: 0px -10px 16px -5px rgba(50, 50, 50, 0.3);
 	-moz-box-shadow:    0px -10px 16px -5px rgba(50, 50, 50, 0.3);
 	box-shadow:         0px -10px 16px -5px rgba(50, 50, 50, 0.3);
 
 }
-
-
 #box2:hover{
-
 	-webkit-transform:scale(1.05);
-	
 	opacity: 1;
 }
-
 #box3{
-
-cursor:pointer;
+	cursor:pointer;
 	min-width: 175px;
-
 	text-align: center;
-	
 	background-image: url("../images/escudo_alava.jpg" );
 	background-size: 50% 70%;
 	background-repeat: no-repeat;
-	 background-position: 50% 50%;
+	background-position: 50% 50%;
 	padding: 20px;
 	margin: 10px;
 	width: 300px;
 	height:230px;
 	font: 28px Tahoma;
-
 	-webkit-box-flex: 1;
 	-webkit-box-align:center;
 	-webkit-transition: -webkit-transform 0.5s;
@@ -167,12 +135,8 @@ cursor:pointer;
 	-moz-box-shadow:    0px -10px 16px -5px rgba(50, 50, 50, 0.3);
 	box-shadow:         0px -10px 16px -5px rgba(50, 50, 50, 0.3);
 }
-
-
 #box3:hover{
-
 	-webkit-transform:scale(1.05);
-
 	opacity: 1;
 }
 #tit{
@@ -181,11 +145,7 @@ cursor:pointer;
 #subtit{
 	font-size: 12px;
 }
-#elfooter{
-	
-}
 #eslogan{
-
 	width: 100%;
 	background: #1d1d1d;
 	margin: 0px;
@@ -195,3 +155,28 @@ cursor:pointer;
 	font: italic bold 40px 'Source Sans Pro';
 }
 /** */
+#vinedo1{
+	cursor:pointer;
+	min-width: 175px;
+	text-align: center;
+	background-image: url("../images/escudo_alava.jpg" );
+	background-size: 50% 70%;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	padding: 20px;
+	margin: 10px;
+	width: 300px;
+	height:230px;
+	font: 28px Tahoma;
+	-webkit-box-flex: 1;
+	-webkit-box-align:center;
+	-webkit-transition: -webkit-transform 0.5s;
+	/*sombra*/
+	-webkit-box-shadow: 0px -10px 16px -5px rgba(50, 50, 50, 0.3);
+	-moz-box-shadow:    0px -10px 16px -5px rgba(50, 50, 50, 0.3);
+	box-shadow:         0px -10px 16px -5px rgba(50, 50, 50, 0.3);
+}
+#vinedo1:hover{
+	-webkit-transform:scale(1.05);
+	opacity: 1;
+}
