@@ -1,19 +1,24 @@
 body{
 	/*background-image: url(../images/fondo.jpg);*/
 }
-#kk{
-	margin: -10px;
+#header{
+	width: 40%;
+	margin-right: 10%;
+	float: right;
+}
+#fondo{
+	margin-top: -10px;
+	margin-right: -10px;
+	margin-left: -50px;
 	padding-top: 30px;
 	height: 600px;
-	background: url(../images/fondo.jpg) ; 
+	background: url(../images/fondo6.jpg) no-repeat; 
 	background-size: 100%;
- 	
 }
 /** MENU*/
 #menu {
-	width:60%;
+	width: 100%;
 	font-family:Arial, Helvetica, sans-serif;
-	
 }
 ul, ol {
 	list-style:none;
@@ -23,12 +28,14 @@ ul, ol {
 }
 
 #nav li {
-	width:26%;
-	margin: 7px;
+	width:25%;
+	margin: 12px;
 }        
 #nav li a {
+	border: solid 0.8px #000000;
+	text-align: center;
 	-webkit-border-radius: 20px 18px;
-	background-color:#AA0606;
+	background-color:#d52349;
 	color:#fff;
 	text-decoration:none;
 	padding:10px 0px;
@@ -36,7 +43,7 @@ ul, ol {
 	width:100%;
 }            
 #nav li a:hover {
-	background-color:#434343;
+	background-color:#B52645;
 }
             
 #nav li ul {
@@ -55,7 +62,7 @@ ul, ol {
 #cuadrados{
 	clear:both;
 	min-width: 700px;
-	padding-top: 50px;
+	padding-top: 8%;
 	margin-bottom: -33px;
 	display: -webkit-box;
 	-webkit-box-orient: horizontal;
@@ -180,3 +187,51 @@ ul, ol {
 	-webkit-transform:scale(1.05);
 	opacity: 1;
 }
+/** SEARCH */
+#tfheader{
+		
+	}
+	#tfnewsearch{
+		float:right;
+		padding:20px;
+	}
+	.tftextinput{
+		margin: 0;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		border:1px solid #000000;
+		border-top-left-radius: 5px 5px;
+		border-bottom-left-radius: 5px 5px;
+	}
+	.tfbutton {
+		margin: 0;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		outline: none;
+		cursor: pointer;
+		text-align: center;
+		text-decoration: none;
+		color: #ffffff;
+		border: solid 1px #000000;
+		background: #d52349;
+		background: -webkit-gradient(linear, left top, left bottom, from(#d52349), to(#d52349));
+		background: -moz-linear-gradient(top,  #d52349,  #d52349);
+		border-top-right-radius: 5px 5px;
+		border-bottom-right-radius: 5px 5px;
+	}
+	.tfbutton:hover {
+		text-decoration: none;
+		background: #007ead;
+		background: -webkit-gradient(linear, left top, left bottom, from(#B52645), to(#B52645));
+		background: -moz-linear-gradient(top,  #B52645,  #B52645);
+	}
+	/* Fixes submit button height problem in Firefox */
+	.tfbutton::-moz-focus-inner {
+	  border: 0;
+	}
+	.tfclear{
+		clear:both;
+	}
+/** */
