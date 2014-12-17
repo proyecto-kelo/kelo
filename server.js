@@ -41,16 +41,40 @@ app.get('/', function(req, res) {
 });
 
 app.get('/navarra', function(req, res) {
-db.query("SELECT * FROM  `vinedos` WHERE provincia =  'Navarra'").success(function(rows){
-// no errors
-  console.log(rows);
-  res.json(rows);
+	db.query("SELECT * FROM  `vinedos` WHERE provincia =  'Navarra'").success(function(rows){
+	// no errors
+	  console.log(rows);
+	  res.json(rows);
+	});
+	db.query("SELECT count(*) FROM  `vinedos` WHERE provincia =  'Navarra'").success(function(rows){
+	// no errors
+	  console.log(rows);
+	  res.json(rows);
+	});
 });
-db.query("SELECT count(*) FROM  `vinedos` WHERE provincia =  'Navarra'").success(function(rows){
-// no errors
-  console.log(rows);
-  res.json(rows);
+app.get('/rioja', function(req, res) {
+	db.query("SELECT * FROM  `vinedos` WHERE provincia =  'La Rioja'").success(function(rows){
+	// no errors
+	  console.log(rows);
+	  res.json(rows);
+	});
+	db.query("SELECT count(*) FROM  `vinedos` WHERE provincia =  'La Rioja'").success(function(rows){
+	// no errors
+	  console.log(rows);
+	  res.json(rows);
+	});
 });
+app.get('/alava', function(req, res) {
+	db.query("SELECT * FROM  `vinedos` WHERE provincia =  'Alava'").success(function(rows){
+	// no errors
+	  console.log(rows);
+	  res.json(rows);
+	});
+	db.query("SELECT count(*) FROM  `vinedos` WHERE provincia =  'Alava'").success(function(rows){
+	// no errors
+	  console.log(rows);
+	  res.json(rows);
+	});
 });
 
 /* Conexión */
