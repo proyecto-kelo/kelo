@@ -268,6 +268,7 @@ ul, ol {
 	float: left;
 }*/
 #vinos_navarra{
+	display:none;
 	margin: 20px;
 	padding: 20px;
 }
@@ -277,6 +278,7 @@ ul, ol {
 	height: 500px;
 }
 #vinos_rioja{
+	display:none;
 	margin: 20px;
 	padding: 20px;
 }
@@ -286,6 +288,7 @@ ul, ol {
 	height: 500px;
 }
 #vinos_alava{
+	display:none;
 	margin: 20px;
 	padding: 20px;
 }

@@ -35,6 +35,7 @@ app.use(bodyParser.json());
 /* Accesible todas las carpetas */
 app.use(express.static(__dirname + '/public'));
 
+/** ROUTES **/
 /* Redireccionar a pagina principal */
 app.get('/', function(req, res) {
 	res.redirect('/index.html');

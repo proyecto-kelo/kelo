@@ -8,10 +8,33 @@ $(document).ready(function(){
 					var elid="n_vinedo"+(i+1);
 					$("#vinos_navarra").append("<div id='"+elid+"'></div>");
 					$("#"+elid).css('background-image','url('+data[i].imagen+')');
-					//$("#"+elid).css('background-size','100%');
 				}	 	 
 			}
 	});
+	$("#box1").click(function(){
+		$("#vinos_rioja").hide();
+		$("#vinos_alava").hide();
+		$("#vinos_navarra").show("slow");
+	});
+
+	$("#box2").click(function(){
+		$("#vinos_navarra").hide();
+		$("#vinos_alava").hide();
+		$("#vinos_rioja").show("slow");
+	});
+
+	$("#box3").click(function(){
+		$("#vinos_rioja").hide();
+		$("#vinos_navarra").hide();
+		$("#vinos_alava").show("slow");
+	});
+	/*function mostrar(){
+	alert("KK!");
+	alert(id);
+	//var aa = document.getElementById('boton');
+	$(id).fadeOut();
+	alert("KK!");
+}*/
 });
 $(document).ready(function(){
 	$.ajax({	
