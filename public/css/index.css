@@ -137,7 +137,6 @@ ul, ol {
 	-webkit-box-shadow: 0px -10px 16px -5px rgba(50, 50, 50, 0.3);
 	-moz-box-shadow:    0px -10px 16px -5px rgba(50, 50, 50, 0.3);
 	box-shadow:         0px -10px 16px -5px rgba(50, 50, 50, 0.3);
-
 }
 #box2:hover{
 	-webkit-transform:scale(1.05);
@@ -176,6 +175,8 @@ ul, ol {
 }
 #elfooter{
 	clear:both;
+	position: relative;
+	/*position: fixed;*/
 }
 #eslogan{
 	clear:both;
@@ -186,32 +187,6 @@ ul, ol {
 	text-align: center;
 	word-spacing: 36px;
 	font: italic bold 40px 'Source Sans Pro';
-}
-/** 
-#vinedo1{
-	cursor:pointer;
-	min-width: 175px;
-	text-align: center;
-	background-image: url("../images/escudo_alava.jpg" );
-	background-size: 50% 70%;
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
-	padding: 20px;
-	margin: 10px;
-	width: 300px;
-	height:230px;
-	font: 28px Tahoma;
-	-webkit-box-flex: 1;
-	-webkit-box-align:center;
-	-webkit-transition: -webkit-transform 0.5s;
-	/*sombra
-	-webkit-box-shadow: 0px -10px 16px -5px rgba(50, 50, 50, 0.3);
-	-moz-box-shadow:    0px -10px 16px -5px rgba(50, 50, 50, 0.3);
-	box-shadow:         0px -10px 16px -5px rgba(50, 50, 50, 0.3);
-}
-#vinedo1:hover{
-	-webkit-transform:scale(1.05);
-	opacity: 1;
 }
 /** SEARCH */
 #tfheader{
@@ -261,21 +236,15 @@ ul, ol {
 		clear:both;
 	}
 /** */
-/*#logos_unai{
-	padding: 20px;
-	margin-top: 600px;
-	clear: both;
-	float: left;
-}*/
 #vinos_navarra{
 	display:none;
 	margin: 20px;
 	padding: 20px;
 }
-#vinos_navarra > div{
+/*#vinos_navarra > div{
 	width: 100px;
 	height: 80px;
-}
+}*/
 #vinos_navarra > div > img{
 	width: 100px;
 	height: 80px;
@@ -285,10 +254,10 @@ ul, ol {
 	margin: 20px;
 	padding: 20px;
 }
-#vinos_rioja > div{
+/*#vinos_rioja > div{
 	width: 100px;
 	height: 80px;
-}
+}*/
 #vinos_rioja > div > img{
 	width: 100px;
 	height: 80px;
@@ -298,57 +267,105 @@ ul, ol {
 	margin: 20px;
 	padding: 20px;
 }
-#vinos_alava > div{
+/*#vinos_alava > div{
 	width: 100px;
 	height: 80px;
-}
+}*/
 #vinos_alava > div > img{
 	width: 100px;
 	height: 80px;
 }
+#vinos_navarra > li {
+	list-style: none;
+}
+#vinos_rioja > li {
+	list-style: none;
+}
+#vinos_alava > li {
+	list-style: none;
+}
+/***/
+#vinos_navarra article {
+	margin: 3% 0 4% 3.8%;
+	display: inline-block;
+	width: 20%;
+	height: 300px;
+	text-align: center;
+	box-shadow: 1px 1px 6px 0px rgba(50, 50, 50, 0.75);
+	overflow: hidden;
+}
 
+#vinos_navarra article img {
+	width: 100%;
+	max-height: 160px;
+	min-height: 100px;
+}
 
+#vinos_navarra h3 {
+	margin: 5% 0 3% 0; 	
+	font-family: 'Lora', serif;
+	color: #303030;
+}
 
+#vinos_navarra p {
+	padding: 2%;	
+	font-size: 90%;
+	font-family: 'Courgette', cursive;
+	color: #797070;
+}
+#vinos_rioja article {
+	margin: 3% 0 4% 3.8%;
+	display: inline-block;
+	width: 20%;
+	height: 300px;
+	text-align: center;
+	box-shadow: 1px 1px 6px 0px rgba(50, 50, 50, 0.75);
+	overflow: hidden;
+}
 
+#vinos_rioja article img {
+	width: 100%;
+	max-height: 160px;
+	min-height: 100px;
+}
 
-/** */
+#vinos_rioja h3 {
+	margin: 5% 0 3% 0; 	
+	font-family: 'Lora', serif;
+	color: #303030;
+}
 
+#vinos_rioja p {
+	padding: 2%;	
+	font-size: 90%;
+	font-family: 'Courgette', cursive;
+	color: #797070;
+}
+#vinos_alava article {
+	margin: 3% 0 4% 3.8%;
+	display: inline-block;
+	width: 20%;
+	height: 300px;
+	text-align: center;
+	box-shadow: 1px 1px 6px 0px rgba(50, 50, 50, 0.75);
+	overflow: hidden;
+}
 
+#vinos_alava article img {
+	width: 100%;
+	max-height: 160px;
+	min-height: 100px;
+}
 
- .example1 {
-            margin:0;
-            padding:0;
-            list-style:none;
-        }
-        
-        li {
-            text-align:center;
-        }
-        
-        li span {
-            display:block;
-            margin:5px;
-            background:red;
-        }
-        
-        .next,
-        .prev {
-            cursor:pointer;
-        }
-        
-        
-        
-        
-        .carousel-pagination li {
-            display:block;
-            width:10px;
-            height:10px;
-            margin-right:5px;
-            cursor:pointer;
-            float:left;
-            background:#333;
-        }
-        
-        .carousel-pagination .carousel-pagination-active {
-            background:#ff0000;
-        }
+#vinos_alava h3 {
+	margin: 5% 0 3% 0; 	
+	font-family: 'Lora', serif;
+	color: #303030;
+}
+
+#vinos_alava p {
+	padding: 2%;	
+	font-size: 90%;
+	font-family: 'Courgette', cursive;
+	color: #797070;
+}

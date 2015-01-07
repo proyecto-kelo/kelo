@@ -4,14 +4,74 @@ $(document).ready(function(){
 			url: "/navarra",
 			dataType: "json",
 			success: function(data){
-				for(var i=0; i<data.length;i++){
-					var elid="n_vinedo"+(i+1);
-					 
-					  $(".example1").append("<li><span>1</span></li>")
-					//$("#vinos_navarra").append("<div id='"+elid+"'><img src='"+data[i].imagen+"'></div>");
-					//$("#"+elid).css('background-image','url('+data[i].imagen+')');   <img src='"+data[i].imagen+"'width='200px' height='200px'>
-				}	 	 
+			//Creamos una variable String para meter instrucciones html, que será la que pasaremos despues al html
+			//Primero creamos un <div> en el html, le ponemos un título y subtítulo, y abrimos otro <div> dentro para meter los pintxos
+			var bodegas = "<div class='vinedos'>";
+
+			//Por cada elemento del json recibido
+			data.forEach(function(element, index, array) {				
+				
+				//A la variable String le sumamos la imágen, nombre y descripción del elemento pintxo
+				bodegas += "<article><img src='"+element.imagen+"'></img><p>"+element.informacion+"</p></article>";					
+
+			});		
+			
+			//Cerramos los <div> del html
+			bodegas += "</div>";
+
+			//Enviamos la variable pintxos, un String simple con instrucciones html, y le indicamos que lo cargue en el div "pintxos"
+			$("#vinos_navarra").append(bodegas);	 
 			}
+	});
+	$.ajax({	
+			type: "GET",
+			url: "/rioja",
+			dataType: "json",
+			success: function(data){
+				//Creamos una variable String para meter instrucciones html, que será la que pasaremos despues al html
+			//Primero creamos un <div> en el html, le ponemos un título y subtítulo, y abrimos otro <div> dentro para meter los pintxos
+			var bodegas = "<div class='vinedos'>";
+
+			//Por cada elemento del json recibido
+			data.forEach(function(element, index, array) {				
+				
+				//A la variable String le sumamos la imágen, nombre y descripción del elemento pintxo
+				bodegas += "<article><img src='"+element.imagen+"'></img></article>";					
+
+			});		
+			
+			//Cerramos los <div> del html
+			bodegas += "</div>";
+
+			//Enviamos la variable pintxos, un String simple con instrucciones html, y le indicamos que lo cargue en el div "pintxos"
+			$("#vinos_rioja").append(bodegas);	 
+			}	 	 
+			
+	});
+	$.ajax({	
+			type: "GET",
+			url: "/alava",
+			dataType: "json",
+			success: function(data){
+				//Creamos una variable String para meter instrucciones html, que será la que pasaremos despues al html
+			//Primero creamos un <div> en el html, le ponemos un título y subtítulo, y abrimos otro <div> dentro para meter los pintxos
+			var bodegas = "<div class='vinedos'>";
+
+			//Por cada elemento del json recibido
+			data.forEach(function(element, index, array) {				
+				
+				//A la variable String le sumamos la imágen, nombre y descripción del elemento pintxo
+				bodegas += "<article><img src='"+element.imagen+"'></img></article>";					
+
+			});		
+			
+			//Cerramos los <div> del html
+			bodegas += "</div>";
+
+			//Enviamos la variable pintxos, un String simple con instrucciones html, y le indicamos que lo cargue en el div "pintxos"
+			$("#vinos_alava").append(bodegas);	 
+			}	 	 
+			
 	});
 	$("#box1").click(function(){
 		$("#vinos_rioja").hide();
@@ -29,42 +89,5 @@ $(document).ready(function(){
 		$("#vinos_rioja").hide();
 		$("#vinos_navarra").hide();
 		$("#vinos_alava").show("slow");
-	});
-	/*function mostrar(){
-	alert("KK!");
-	alert(id);
-	//var aa = document.getElementById('boton');
-	$(id).fadeOut();
-	alert("KK!");
-}*/
-});
-$(document).ready(function(){
-	$.ajax({	
-			type: "GET",
-			url: "/rioja",
-			dataType: "json",
-			success: function(data){
-				for(var i=0; i<data.length;i++){
-					var elid="r_vinedo"+(i+1);
-					$("#vinos_rioja").append("<div id='"+elid+"'><img src='"+data[i].imagen+"'></div>");
-					//$("#"+elid).css('background-image','url('+data[i].imagen+')');
-					//$("#"+elid).css('background-size','100%');
-				}	 	 
-			}
-	});
-});
-$(document).ready(function(){
-	$.ajax({	
-			type: "GET",
-			url: "/alava",
-			dataType: "json",
-			success: function(data){
-				for(var i=0; i<data.length;i++){
-					var elid="a_vinedo"+(i+1);
-					$("#vinos_alava").append("<div id='"+elid+"'><img src='"+data[i].imagen+"'></div>");
-					//$("#"+elid).css('background-image','url('+data[i].imagen+')');
-					//$("#"+elid).css('background-size','100%');
-				}	 	 
-			}
 	});
 });
