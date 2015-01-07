@@ -6,8 +6,10 @@ $(document).ready(function(){
 			success: function(data){
 				for(var i=0; i<data.length;i++){
 					var elid="n_vinedo"+(i+1);
-					$("#vinos_navarra").append("<div id='"+elid+"'></div>");
-					$("#"+elid).css('background-image','url('+data[i].imagen+')');
+					 
+					  $(".example1").append("<li><span>1</span></li>")
+					//$("#vinos_navarra").append("<div id='"+elid+"'><img src='"+data[i].imagen+"'></div>");
+					//$("#"+elid).css('background-image','url('+data[i].imagen+')');   <img src='"+data[i].imagen+"'width='200px' height='200px'>
 				}	 	 
 			}
 	});
@@ -44,8 +46,8 @@ $(document).ready(function(){
 			success: function(data){
 				for(var i=0; i<data.length;i++){
 					var elid="r_vinedo"+(i+1);
-					$("#vinos_rioja").append("<div id='"+elid+"'></div>");
-					$("#"+elid).css('background-image','url('+data[i].imagen+')');
+					$("#vinos_rioja").append("<div id='"+elid+"'><img src='"+data[i].imagen+"'></div>");
+					//$("#"+elid).css('background-image','url('+data[i].imagen+')');
 					//$("#"+elid).css('background-size','100%');
 				}	 	 
 			}
@@ -59,8 +61,8 @@ $(document).ready(function(){
 			success: function(data){
 				for(var i=0; i<data.length;i++){
 					var elid="a_vinedo"+(i+1);
-					$("#vinos_alava").append("<div id='"+elid+"'></div>");
-					$("#"+elid).css('background-image','url('+data[i].imagen+')');
+					$("#vinos_alava").append("<div id='"+elid+"'><img src='"+data[i].imagen+"'></div>");
+					//$("#"+elid).css('background-image','url('+data[i].imagen+')');
 					//$("#"+elid).css('background-size','100%');
 				}	 	 
 			}

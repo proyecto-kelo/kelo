@@ -77,7 +77,7 @@ ul, ol {
 	display:block;
 }
 #nav ul>li{
-
+	
 }
 /** */
 /** CONTENIDO */
@@ -273,9 +273,12 @@ ul, ol {
 	padding: 20px;
 }
 #vinos_navarra > div{
-	background-size: 100%;
-	width: 500px;
-	height: 500px;
+	width: 100px;
+	height: 80px;
+}
+#vinos_navarra > div > img{
+	width: 100px;
+	height: 80px;
 }
 #vinos_rioja{
 	display:none;
@@ -283,9 +286,12 @@ ul, ol {
 	padding: 20px;
 }
 #vinos_rioja > div{
-	background-size: 100%;
-	width: 500px;
-	height: 500px;
+	width: 100px;
+	height: 80px;
+}
+#vinos_rioja > div > img{
+	width: 100px;
+	height: 80px;
 }
 #vinos_alava{
 	display:none;
@@ -293,7 +299,56 @@ ul, ol {
 	padding: 20px;
 }
 #vinos_alava > div{
-	background-size: 100%;
-	width: 500px;
-	height: 500px;
+	width: 100px;
+	height: 80px;
 }
+#vinos_alava > div > img{
+	width: 100px;
+	height: 80px;
+}
+
+
+
+
+
+/** */
+
+
+
+ .example1 {
+            margin:0;
+            padding:0;
+            list-style:none;
+        }
+        
+        li {
+            text-align:center;
+        }
+        
+        li span {
+            display:block;
+            margin:5px;
+            background:red;
+        }
+        
+        .next,
+        .prev {
+            cursor:pointer;
+        }
+        
+        
+        
+        
+        .carousel-pagination li {
+            display:block;
+            width:10px;
+            height:10px;
+            margin-right:5px;
+            cursor:pointer;
+            float:left;
+            background:#333;
+        }
+        
+        .carousel-pagination .carousel-pagination-active {
+            background:#ff0000;
+        }
