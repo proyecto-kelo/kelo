@@ -6,8 +6,7 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>	
 		<script src="js/main.js" type="text/javascript"></script>
 		<script src="js/bodegas.js" type="text/javascript"></script>
-		<script src="js/jquery.bxslider.min.js"></script>
-		<script src="js/index.js"></script>    
+		<!--<script src="js/index.js"></script>-->   
 	</head>
 	<title>Kelo - Inicio</title>
 	<body>
@@ -18,13 +17,13 @@
 				<ul id="nav">
 					<li id="inicio"><a href="index.html">Inicio</a></li>
 					<li id="tienda"><a href="">Tienda</a></li>
-					<li id="contacto"><a href="">Contacto</a></li>
+					<li id="contacto"><a href="#formulario">Contacto</a></li>
 				</ul>
 			</nav>
 
 			<div id="tfheader">
-			<form id="tfnewsearch">
-		        <input type="text" class="tftextinput" name="q" size="15" maxlength="120" id="texto"><input type="submit" value="search" class="tfbutton" onClick="buscar()">
+			<form id="tfnewsearch" action="/buscar" method="get">
+		        <input type="text" class="tftextinput" name="q" size="15" maxlength="120" id="texto"><input type="submit" value="search" class="tfbutton">
 			</form>
 			<div class="tfclear"></div>
 			</div>
@@ -54,8 +53,41 @@
 		<section id="vinos_alava">
 			<h1>Alava</h1>
 		</section>
-		<footer id="elfooter">
-			<p id="eslogan">Vino Ardoa Wine Vin Vinon</p>
-		</footer>
+
+		<div id="formulario" class="modalDialog">
+    		<div>
+    			<form action="#">
+  					<div>
+    				<label>Nombre</label>
+    					<div>
+    						<input id="nombre" type="text" value="" size="8" tabindex="1">
+    					</div>
+  					</div> 
+  					<div>
+    				<label>Email</label>
+    					<div>
+    						<input id="email" type="email" value="" maxlength="255" tabindex="3">  
+    					</div>
+  					</div>
+  					<div>
+    				<label>Asunto</label>
+	    				<div>
+	    					<input id="asunto" type="text" value="" size="8" tabindex="1">
+	    				</div>
+  					</div>
+  					<div>
+    				<label >Mensaje</label>
+	    				<div>
+	    					<textarea id="mensaje" rows="10" cols="50" tabindex="4"></textarea>
+	    				</div>
+  					</div>
+  					<div>
+    					<div>
+      					<input id="saveForm" name="saveForm" type="submit" value="Enviar">
+    					</div>
+  					</div>
+				</form>
+			</div>
+		</div>
 	</body>
 </html>

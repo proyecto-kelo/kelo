@@ -19,7 +19,7 @@ $(document).ready(function(){
 					fin+= res[i];
 				}
 				//A la variable String le sumamos la imágen, nombre y descripción del elemento pintxo
-				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.info+"</p></a></article>";					
+				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></a></article>";					
 				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p></div></div>";
 			});		
 			
@@ -41,10 +41,16 @@ $(document).ready(function(){
 
 			//Por cada elemento del json recibido
 			data.forEach(function(element, index, array) {				
-				
+				var str = element.nombre;
+				var peq = str.toLowerCase();
+				var res = peq.split(" ");
+				var fin = "";
+				for (var i=0; i<res.length; i++){
+					fin+= res[i];
+				}
 				//A la variable String le sumamos la imágen, nombre y descripción del elemento pintxo
-				bodegas += "<article><img src='"+element.imagen+"'></img></article>";					
-
+				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></a></article>";					
+				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p></div></div>";
 			});		
 			
 			//Cerramos los <div> del html
@@ -66,10 +72,16 @@ $(document).ready(function(){
 
 			//Por cada elemento del json recibido
 			data.forEach(function(element, index, array) {				
-				
+				var str = element.nombre;
+				var peq = str.toLowerCase();
+				var res = peq.split(" ");
+				var fin = "";
+				for (var i=0; i<res.length; i++){
+					fin+= res[i];
+				}
 				//A la variable String le sumamos la imágen, nombre y descripción del elemento pintxo
-				bodegas += "<article><img src='"+element.imagen+"'></img></article>";					
-
+				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></a></article>";					
+				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p></div></div>";
 			});		
 			
 			//Cerramos los <div> del html
@@ -77,6 +89,38 @@ $(document).ready(function(){
 
 			//Enviamos la variable pintxos, un String simple con instrucciones html, y le indicamos que lo cargue en el div "pintxos"
 			$("#vinos_alava").append(bodegas);	 
+			}	 	 
+			
+	});
+	$.ajax({	
+			type: "GET",
+			url: "/buscar",
+			dataType: "json",
+			success: function(data){
+				//Creamos una variable String para meter instrucciones html, que será la que pasaremos despues al html
+			//Primero creamos un <div> en el html, le ponemos un título y subtítulo, y abrimos otro <div> dentro para meter los pintxos
+			var bodegas = "<div class='vinedos'>";
+			var provincia = "";
+			//Por cada elemento del json recibido
+			data.forEach(function(element, index, array) {				
+				var str = element.nombre;
+				var peq = str.toLowerCase();
+				var res = peq.split(" ");
+				var fin = "";
+				for (var i=0; i<res.length; i++){
+					fin+= res[i];
+				}
+				//A la variable String le sumamos la imágen, nombre y descripción del elemento pintxo
+				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></a></article>";					
+				//bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p></div></div>";
+				provincia = "#vinos_"+element.provincia;
+			});		
+			
+			//Cerramos los <div> del html
+			bodegas += "</div>";
+			
+			//Enviamos la variable pintxos, un String simple con instrucciones html, y le indicamos que lo cargue en el div "pintxos"
+			$(provincia).append(bodegas);	 
 			}	 	 
 			
 	});

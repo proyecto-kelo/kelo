@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 // CONEXION BASE DE DATOS //
 var sqlze = require('sequelize');
 var mysql =  require('mysql');
-// var db = new sqlze('databasename', 'username', 'password',{
+//var db = new sqlze('kelo', 'adminPVADnlv', 'hIelxfWGujKy',{
 var db = new sqlze('kelo', 'root', 'zubiri',{
 dialect: 'mysql',
 port: 3306
@@ -77,7 +77,14 @@ app.get('/alava', function(req, res) {
 	  res.json(rows);
 	});
 });
+app.get('/buscar', function(req, res) {
+	db.query("SELECT * FROM  `vinedo` WHERE nombre =  '"+req+"'").success(function(rows){
+	// no errors
+	  console.log(rows);
+	  res.json(rows);
+	});
 
+});
 /* Conexión */
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080 || 5000; 
 var ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
