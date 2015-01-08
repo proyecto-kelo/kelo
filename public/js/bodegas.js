@@ -11,9 +11,16 @@ $(document).ready(function(){
 			//Por cada elemento del json recibido
 			data.forEach(function(element, index, array) {				
 				
+				var str = element.nombre;
+				var peq = str.toLowerCase();
+				var res = peq.split(" ");
+				var fin = "";
+				for (var i=0; i<res.length; i++){
+					fin+= res[i];
+				}
 				//A la variable String le sumamos la imágen, nombre y descripción del elemento pintxo
-				bodegas += "<article><img src='"+element.imagen+"'></img><p>"+element.informacion+"</p></article>";					
-
+				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.info+"</p></a></article>";					
+				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p></div></div>";
 			});		
 			
 			//Cerramos los <div> del html
