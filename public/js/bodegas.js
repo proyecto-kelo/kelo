@@ -4,13 +4,13 @@ $(document).ready(function(){
 			url: "/navarra",
 			dataType: "json",
 			success: function(data){
-			//Creamos una variable String para meter instrucciones html, que será la que pasaremos despues al html
-			//Primero creamos un <div> en el html, le ponemos un título y subtítulo, y abrimos otro <div> dentro para meter los pintxos
+			//Creamos una variable, bodegas, para meter instrucciones html
+			//Después lo insertaremos en nuestro div de la provincia, Navarra en este caso
 			var bodegas = "<div class='vinedos'>";
-
-			//Por cada elemento del json recibido
+			//Por cada elemento del json recibido (for por cada elemento)
 			data.forEach(function(element, index, array) {				
-				
+				// Recibimos el nombre de cada bodega para darle el id con su nombre
+				// Lo ponemos en minuscula y le quitamos los espacios
 				var str = element.nombre;
 				var peq = str.toLowerCase();
 				var res = peq.split(" ");
@@ -18,15 +18,14 @@ $(document).ready(function(){
 				for (var i=0; i<res.length; i++){
 					fin+= res[i];
 				}
-				//A la variable String le sumamos la imágen, nombre y descripción del elemento pintxo
+				// Creamos una etiqueta de articulo con un hipervinculo al pop-up
+				// Introducimos todos los atributos correspondientes del viñedo desde la bd
 				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></a></article>";					
 				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p></div></div>";
-			});		
-			
-			//Cerramos los <div> del html
+			});
+			// Cerramos los <div> del principio
 			bodegas += "</div>";
-
-			//Enviamos la variable pintxos, un String simple con instrucciones html, y le indicamos que lo cargue en el div "pintxos"
+			// Introducimos la variable bodegas en nuestro div #vinos_navarra
 			$("#vinos_navarra").append(bodegas);	 
 			}
 	});
@@ -35,12 +34,13 @@ $(document).ready(function(){
 			url: "/rioja",
 			dataType: "json",
 			success: function(data){
-				//Creamos una variable String para meter instrucciones html, que será la que pasaremos despues al html
-			//Primero creamos un <div> en el html, le ponemos un título y subtítulo, y abrimos otro <div> dentro para meter los pintxos
+			//Creamos una variable, bodegas, para meter instrucciones html
+			//Después lo insertaremos en nuestro div de la provincia, La Rioja en este caso
 			var bodegas = "<div class='vinedos'>";
-
-			//Por cada elemento del json recibido
-			data.forEach(function(element, index, array) {				
+			//Por cada elemento del json recibido (for por cada elemento)
+			data.forEach(function(element, index, array) {
+				// Recibimos el nombre de cada bodega para darle el id con su nombre
+				// Lo ponemos en minuscula y le quitamos los espacios				
 				var str = element.nombre;
 				var peq = str.toLowerCase();
 				var res = peq.split(" ");
@@ -48,29 +48,27 @@ $(document).ready(function(){
 				for (var i=0; i<res.length; i++){
 					fin+= res[i];
 				}
-				//A la variable String le sumamos la imágen, nombre y descripción del elemento pintxo
+				// Creamos una etiqueta de articulo con un hipervinculo al pop-up
+				// Introducimos todos los atributos correspondientes del viñedo desde la bd
 				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></a></article>";					
 				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p></div></div>";
 			});		
-			
-			//Cerramos los <div> del html
+			// Cerramos los <div> del principio
 			bodegas += "</div>";
-
-			//Enviamos la variable pintxos, un String simple con instrucciones html, y le indicamos que lo cargue en el div "pintxos"
+			// Introducimos la variable bodegas en nuestro div #vinos_rioja
 			$("#vinos_rioja").append(bodegas);	 
-			}	 	 
-			
+			}
 	});
 	$.ajax({	
 			type: "GET",
 			url: "/alava",
 			dataType: "json",
 			success: function(data){
-				//Creamos una variable String para meter instrucciones html, que será la que pasaremos despues al html
-			//Primero creamos un <div> en el html, le ponemos un título y subtítulo, y abrimos otro <div> dentro para meter los pintxos
+			//Creamos una variable, bodegas, para meter instrucciones html
+			//Después lo insertaremos en nuestro div de la provincia, Alava en este caso
 			var bodegas = "<div class='vinedos'>";
-
-			//Por cada elemento del json recibido
+			// Recibimos el nombre de cada bodega para darle el id con su nombre
+			// Lo ponemos en minuscula y le quitamos los espacios				
 			data.forEach(function(element, index, array) {				
 				var str = element.nombre;
 				var peq = str.toLowerCase();
@@ -79,48 +77,34 @@ $(document).ready(function(){
 				for (var i=0; i<res.length; i++){
 					fin+= res[i];
 				}
-				//A la variable String le sumamos la imágen, nombre y descripción del elemento pintxo
+				// Creamos una etiqueta de articulo con un hipervinculo al pop-up
+				// Introducimos todos los atributos correspondientes del viñedo desde la bd
 				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></a></article>";					
 				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p></div></div>";
 			});		
-			
-			//Cerramos los <div> del html
+			// Cerramos los <div> del principio
 			bodegas += "</div>";
-
-			//Enviamos la variable pintxos, un String simple con instrucciones html, y le indicamos que lo cargue en el div "pintxos"
+			// Introducimos la variable bodegas en nuestro div #vinos_alava
 			$("#vinos_alava").append(bodegas);	 
 			}	 	 
-			
 	});
+	/*Prueba, no se sabe si esta bien o mal*/
 	$.ajax({	
 			type: "GET",
 			url: "/buscar",
 			dataType: "json",
 			success: function(data){
-				//Creamos una variable String para meter instrucciones html, que será la que pasaremos despues al html
-			//Primero creamos un <div> en el html, le ponemos un título y subtítulo, y abrimos otro <div> dentro para meter los pintxos
-			var bodegas = "<div class='vinedos'>";
-			var provincia = "";
-			//Por cada elemento del json recibido
+			
+			var busqueda = getElementsByName('q')[0].value;
+			alert("Se ha seleccionado"+busqueda);
 			data.forEach(function(element, index, array) {				
-				var str = element.nombre;
-				var peq = str.toLowerCase();
-				var res = peq.split(" ");
-				var fin = "";
-				for (var i=0; i<res.length; i++){
-					fin+= res[i];
+				var nombre = element[index].nombre;
+					alert("Se ha seleccionado"+nombre);
+				if(busqueda==nombre){
+					alert("Se ha seleccionado"+busqueda);
 				}
-				//A la variable String le sumamos la imágen, nombre y descripción del elemento pintxo
-				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></a></article>";					
-				//bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p></div></div>";
-				provincia = "#vinos_"+element.provincia;
 			});		
-			
-			//Cerramos los <div> del html
-			bodegas += "</div>";
-			
-			//Enviamos la variable pintxos, un String simple con instrucciones html, y le indicamos que lo cargue en el div "pintxos"
-			$(provincia).append(bodegas);	 
+			 
 			}	 	 
 			
 	});

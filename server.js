@@ -77,8 +77,8 @@ app.get('/alava', function(req, res) {
 	  res.json(rows);
 	});
 });
-app.get('/buscar', function(req, res) {
-	db.query("SELECT * FROM  `vinedo` WHERE nombre =  '"+req+"'").success(function(rows){
+app.get('/buscar', function(req,res) {
+	db.query("SELECT * FROM  `vinedo`").success(function(rows){
 	// no errors
 	  console.log(rows);
 	  res.json(rows);
