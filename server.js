@@ -83,7 +83,6 @@ app.get('/buscar', function(req,res) {
 	  console.log(rows);
 	  res.json(rows);
 	});
-
 });
 /* Conexión */
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080 || 5000; 

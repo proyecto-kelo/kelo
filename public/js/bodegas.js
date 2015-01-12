@@ -94,32 +94,28 @@ $(document).ready(function(){
 			url: "/buscar",
 			dataType: "json",
 			success: function(data){
-			
-			var busqueda = getElementsByName('q')[0].value;
-			alert("Se ha seleccionado"+busqueda);
-			data.forEach(function(element, index, array) {				
-				var nombre = element[index].nombre;
-					alert("Se ha seleccionado"+nombre);
-				if(busqueda==nombre){
-					alert("Se ha seleccionado"+busqueda);
+			$(".tfbutton").click(function(){
+				var busqueda = document.getElementsByName('q')[0].value;
+				alert("Se ha seleccionado"+busqueda);
+				for (var i=0; i<data.length; i++){
+					var nombre = data[i].nombre;
+					if(busqueda==nombre){
+						alert("Se ha comparado"+nombre);
+					}
 				}
-			});		
-			 
+			});			 
 			}	 	 
-			
 	});
 	$("#box1").click(function(){
 		$("#vinos_rioja").hide();
 		$("#vinos_alava").hide();
 		$("#vinos_navarra").show("slow");
 	});
-
 	$("#box2").click(function(){
 		$("#vinos_navarra").hide();
 		$("#vinos_alava").hide();
 		$("#vinos_rioja").show("slow");
 	});
-
 	$("#box3").click(function(){
 		$("#vinos_rioja").hide();
 		$("#vinos_navarra").hide();
