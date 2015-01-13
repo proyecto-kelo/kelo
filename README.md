@@ -28,3 +28,9 @@ Cada viñedo será representado por su localización, nombre, información, foto
 La pagina/app en sí, tiene como idea principal, formentar (darse a conocer) la rioja y su producto, el vino. Y a su vez, valorarlo.
 
 Una tienda online de los productos (el vino), bien haciendo packs u ofertas o bien botellas sueltas/unitarias.
+
+
+http://howtolearn.me/how-create-online-store-free-prestashop-openshift/
+http://tiendakelo-kelotienda.rhcloud.com/es/
+http://tiendakelo-kelotienda.rhcloud.com/install-dev/index.php
+http://tiendakelo-kelotienda.rhcloud.com/admin-dev/index.php?controller=AdminProducts&token=2c9bd43f88a616e3a29480ea384f52fb

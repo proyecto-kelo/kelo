@@ -21,7 +21,7 @@ $(document).ready(function(){
 				// Creamos una etiqueta de articulo con un hipervinculo al pop-up
 				// Introducimos todos los atributos correspondientes del viñedo desde la bd
 				bodegas += "<article class='"+fin+"' onClick=mostrar('"+fin+"')><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></article>";					
-				bodegas += "<div id='"+fin+"' class='"+fin+"'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p></div></div>";
+				bodegas += "<div id='"+fin+"' class='bodegas'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p></div></div>";
 			});
 			// Cerramos los <div> del principio
 			bodegas += "</div>";

@@ -18,7 +18,7 @@ function enviar(){
 }
 // Funcion para mostrar el pop-up del viñedo seleccionado
 function mostrar(nombre){
-    
-    alert("HOLA! "+nombre);
+    $('.bodegas').css({opacity:0});
     $('#'+nombre).css({opacity:1});
+
 }
