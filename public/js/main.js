@@ -1,3 +1,4 @@
+// Funcion de formulario que recoge los datos
 function enviar(){
     var nombre = document.getElementById('nombre').value;
     var arraySplit = nombre.split("");
@@ -15,4 +16,9 @@ function enviar(){
         alert("Mensaje esta vacio");
     }
 }
-
+// Funcion para mostrar el pop-up del viñedo seleccionado
+function mostrar(nombre){
+    
+    alert("HOLA! "+nombre);
+    $('#'+nombre).css({opacity:1});
+}

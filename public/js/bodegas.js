@@ -20,8 +20,8 @@ $(document).ready(function(){
 				}
 				// Creamos una etiqueta de articulo con un hipervinculo al pop-up
 				// Introducimos todos los atributos correspondientes del viñedo desde la bd
-				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></a></article>";					
-				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p></div></div>";
+				bodegas += "<article class='"+fin+"' onClick=mostrar('"+fin+"')><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></article>";					
+				bodegas += "<div id='"+fin+"' class='"+fin+"'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p></div></div>";
 			});
 			// Cerramos los <div> del principio
 			bodegas += "</div>";
@@ -94,18 +94,36 @@ $(document).ready(function(){
 			url: "/buscar",
 			dataType: "json",
 			success: function(data){
+
 			$(".tfbutton").click(function(){
 				var busqueda = document.getElementsByName('q')[0].value;
 				alert("Se ha seleccionado"+busqueda);
 				for (var i=0; i<data.length; i++){
 					var nombre = data[i].nombre;
+					//alert(nombre);
 					if(busqueda==nombre){
-						alert("Se ha comparado"+nombre);
+						alert(nombre);
+						var str = busqueda;
+						var peq = str.toLowerCase();
+						var res = peq.split(" ");
+						var fin = "#";
+						for (var i=0; i<res.length; i++){
+							fin+= res[i];
+						}
+						alert(fin);
+						//$(".modalDialog").css({opacity:1});
+						//window.location="http://localhost:8080/"+fin;
+						/*var url = "http://localhost:8080/"+fin;
+						$(location).attr('href',url);*/
+						//alert(fin);
+						break;
+						//alert("Se ha comparado"+nombre);
 					}
 				}
 			});			 
 			}	 	 
 	});
+	// Enseñar viñedos de cada provincia segun donde se haga click
 	$("#box1").click(function(){
 		$("#vinos_rioja").hide();
 		$("#vinos_alava").hide();

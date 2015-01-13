@@ -41,6 +41,7 @@ app.get('/', function(req, res) {
 	res.redirect('/index.html');
 });
 
+// Seleccion de la base de datos de los viñedos. Navarra, Rioja, Alava y todos.
 app.get('/navarra', function(req, res) {
 	db.query("SELECT * FROM  `vinedo` WHERE provincia =  'Navarra'").success(function(rows){
 	// no errors
