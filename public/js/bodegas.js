@@ -18,10 +18,24 @@ $(document).ready(function(){
 				for (var i=0; i<res.length; i++){
 					fin+= res[i];
 				}
+				// Codigo para slider
+				var slider = "<div id='slider'><figure>";
+				if(element.tinto!=null){
+					slider+="<img src='"+element.tinto+"' alt>";
+				}
+				if(element.rosado!=null){
+					slider+="<img src='"+element.rosado+"' alt>";
+				}
+				if(element.blenco!=null){
+					slider+="<img src='"+element.blanco+"' alt>";
+				}
+				slider+="</figure></div>";
+				//var kkculo = "<div id='wrapper'><h1>ResponsiveSlides.js</h1><ul class='rslides' id='slider3'><li><img src='/images/1.jpg' alt=''></li><li><img src='/images/2.jpg' alt=''></li><li><img src='/images/3.jpg' alt=''></li></ul><ul id='slider3-pager'><li><a href='#'><img src='/images/1_thumb.jpg' alt=''></a></li><li><a href='#'><img src='/images/2_thumb.jpg' alt=''></a></li><li><a href='#'><img src='/images/3_thumb.jpg' alt=''></a></li></ul></div>";
 				// Creamos una etiqueta de articulo con un hipervinculo al pop-up
 				// Introducimos todos los atributos correspondientes del viñedo desde la bd
-				bodegas += "<article class='"+fin+"' onClick=mostrar('"+fin+"')><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></article>";					
-				bodegas += "<div id='"+fin+"' class='bodegas'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p></div></div>";
+				//
+				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></a></article>";	//									
+				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p>"+slider+"</div></div>";
 			});
 			// Cerramos los <div> del principio
 			bodegas += "</div>";
@@ -97,26 +111,43 @@ $(document).ready(function(){
 
 			$(".tfbutton").click(function(){
 				var busqueda = document.getElementsByName('q')[0].value;
-				alert("Se ha seleccionado"+busqueda);
+				var provincia = "#vinos_";
+				alert("Se ha seleccionado: "+busqueda);
+				var str = busqueda;
+				var peq = str.toLowerCase();
+				var res = peq.split(" ");
+				var fin = "";
+				for (var i=0; i<res.length; i++){
+					fin+= res[i];
+				}
+				alert("Despues: "+fin);
 				for (var i=0; i<data.length; i++){
 					var nombre = data[i].nombre;
 					//alert(nombre);
-					if(busqueda==nombre){
+					var str1 = nombre;
+					var peq1 = str1.toLowerCase();
+					var res1 = peq1.split(" ");
+					nombre = "";
+					for (var j=0; j<res1.length; j++){
+						nombre+= res1[j];
+					}
+					alert("Hey! "+nombre);
+					if(fin==nombre){
+						alert("hola");
+						provincia = provincia + data[i].provincia;
+						provincia = provincia.toLowerCase();
+						alert("la provincia es: "+provincia);
+						$(provincia).css("display","block");
 						alert(nombre);
-						var str = busqueda;
-						var peq = str.toLowerCase();
-						var res = peq.split(" ");
-						var fin = "#";
-						for (var i=0; i<res.length; i++){
-							fin+= res[i];
-						}
-						alert(fin);
-						//$(".modalDialog").css({opacity:1});
+						
+						fin="#"+fin;
+						$(fin).css({opacity:1});
 						//window.location="http://localhost:8080/"+fin;
 						/*var url = "http://localhost:8080/"+fin;
 						$(location).attr('href',url);*/
 						//alert(fin);
 						break;
+
 						//alert("Se ha comparado"+nombre);
 					}
 				}
