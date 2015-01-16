@@ -548,13 +548,10 @@ position: fixed;
 }
 /****************************************************/
 /* Slider */
-.rslides {
-  margin: 0 auto 40px;
-  }
 #wrapper {
   padding: 20px;
   }
-#slider3 {
+.modalDialog div > div > .slider3 {
   box-shadow: none;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
@@ -602,27 +599,18 @@ position: fixed;
   font-weight: bold;
   }
 
-a {
-  color: #fff;
-  text-decoration: none;
-  }
-
 /* Callback example */
-
-#slider3-pager a {
+.modalDialog div > div > .slider3-pager a {
   display: inline-block;
 }
-
-#slider3-pager img {
+.modalDialog div > div > .slider3-pager img {
   float: left;
 }
-
-#slider3-pager .rslides_here a {
+.modalDialog div > div > .slider3-pager .rslides_here a {
   background: transparent;
   box-shadow: 0 0 0 2px #666;
 }
-
-#slider3-pager a {
+.modalDialog div > div > .slider3-pager a {
   padding: 0;
 }
 

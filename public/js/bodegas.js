@@ -30,12 +30,12 @@ $(document).ready(function(){
 					slider+="<img src='"+element.blanco+"' alt>";
 				}
 				slider+="</figure></div>";
-				//var kkculo = "<div id='wrapper'><h1>ResponsiveSlides.js</h1><ul class='rslides' id='slider3'><li><img src='/images/1.jpg' alt=''></li><li><img src='/images/2.jpg' alt=''></li><li><img src='/images/3.jpg' alt=''></li></ul><ul id='slider3-pager'><li><a href='#'><img src='/images/1_thumb.jpg' alt=''></a></li><li><a href='#'><img src='/images/2_thumb.jpg' alt=''></a></li><li><a href='#'><img src='/images/3_thumb.jpg' alt=''></a></li></ul></div>";
+				var kkculo = "<div id='wrapper-"+fin+"'><!-- Slideshow 3 --><ul class='rslides' class='slider3'><li><img src='images/1.jpg' alt=''></li><li><img src='images/2.jpg' alt=''></li><li><img src='images/3.jpg' alt=''></li></ul><!-- Slideshow 3 Pager --><ul class='slider3-pager'><li><a href='#'><img src='images/1_thumb.jpg' alt=''></a></li><li><a href='#'><img src='images/2_thumb.jpg' alt=''></a></li><li><a href='#'><img src='images/3_thumb.jpg' alt=''></a></li></ul></div>";
 				// Creamos una etiqueta de articulo con un hipervinculo al pop-up
 				// Introducimos todos los atributos correspondientes del viñedo desde la bd
 				//
 				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></a></article>";	//									
-				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p>"+slider+"</div></div>";
+				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p>"+kkculo+"</div></div>";
 			});
 			// Cerramos los <div> del principio
 			bodegas += "</div>";
