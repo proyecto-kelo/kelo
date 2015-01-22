@@ -18,7 +18,7 @@ function enviar(){
                 $.ajax({
                     type: "POST",
                     url: "enviar.php",
-                    data: {$("#formulario").serialize()},
+                    data: $("#formulario").serialize(),
                     success: function(data){
                         alert(data);
                     }
