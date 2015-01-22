@@ -6,19 +6,8 @@
 		<link rel="stylesheet" href="css/index.css" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>	
 		<script src="js/main.js" type="text/javascript"></script>
+		<script src="js/formulario.js" type="text/javascript"></script>
 		<script src="js/bodegas.js" type="text/javascript"></script>
-		<script src="responsiveslides.min.js"></script>
-		<script>
-		    // You can also use 
-		    $(window).load(function() {
-		    //$(function () {
-		      // Slideshow 3
-		      $("#slider3").responsiveSlides({
-		        manualControls: '#slider3-pager',
-		        maxwidth: 540
-		      });
-		    });
-	  	</script>
 	</head>
 	<title>Kelo - Inicio</title>
 	<body>
@@ -68,9 +57,10 @@
 		</section>
 		<!-- Formulario -->
 		<!-- Estará escondido hasta que se pulse el botón de contacto -->
-		<div id="formulario" class="modalDialog">
+		<div id="formulario" class="modalDialog" >
     		<div>
-    			<form action="#">
+    		<a href='#close' title='Close' class='close'>X</a>
+    			<form method="post" id="formulario">
   					<div>
     				<label>Nombre</label>
     					<div>
@@ -97,25 +87,12 @@
   					</div>
   					<div>
     					<div>
-      					<input id="saveForm" name="saveForm" type="submit" value="Enviar">
+      					<input id="saveForm" name="saveForm" type="button" value="Enviar" onclick="enviar()">
     					</div>
   					</div>
 				</form>
+			
 			</div>
 		</div>
-		<div id="wrapper">
-		    <!-- Slideshow 3 -->
-		    <ul class="rslides" id="slider3">
-		      <li><img src="images/1.jpg" alt=""></li>
-		      <li><img src="images/2.jpg" alt=""></li>
-		      <li><img src="images/3.jpg" alt=""></li>
-		    </ul>
-		    <!-- Slideshow 3 Pager -->
-		    <ul id="slider3-pager">
-		      <li><a href="#"><img src="images/1_thumb.jpg" alt=""></a></li>
-		      <li><a href="#"><img src="images/2_thumb.jpg" alt=""></a></li>
-		      <li><a href="#"><img src="images/3_thumb.jpg" alt=""></a></li>
-		    </ul>
-		 </div>
 	</body>
 </html>
