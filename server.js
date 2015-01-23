@@ -7,7 +7,7 @@ var cookieParser = require('cookie-parser');
 var sqlze = require('sequelize');
 var mysql =  require('mysql');
 //var db = new sqlze('kelo', 'adminPVADnlv', 'hIelxfWGujKy',{
-var db = new sqlze('kelo', 'root', 'mysql',{
+var db = new sqlze('kelo', 'root', 'zubiri',{
 dialect: 'mysql',
 port: 3306
 });
@@ -45,50 +45,42 @@ app.get('/', function(req, res) {
 app.get('/navarra', function(req, res) {
 	db.query("SELECT * FROM  `vinedo` WHERE provincia =  'Navarra'").success(function(rows){
 	// no errors
-	  console.log(rows);
 	  res.json(rows);
 	});
 	db.query("SELECT count(*) FROM  `vinedo` WHERE provincia =  'Navarra'").success(function(rows){
 	// no errors
-	  console.log(rows);
 	  res.json(rows);
 	});
 });
 app.get('/rioja', function(req, res) {
 	db.query("SELECT * FROM  `vinedo` WHERE provincia =  'La Rioja'").success(function(rows){
 	// no errors
-	  console.log(rows);
 	  res.json(rows);
 	});
 	db.query("SELECT count(*) FROM  `vinedo` WHERE provincia =  'La Rioja'").success(function(rows){
 	// no errors
-	  console.log(rows);
 	  res.json(rows);
 	});
 });
 app.get('/alava', function(req, res) {
 	db.query("SELECT * FROM  `vinedo` WHERE provincia =  'Alava'").success(function(rows){
 	// no errors
-	  console.log(rows);
 	  res.json(rows);
 	});
 	db.query("SELECT count(*) FROM  `vinedo` WHERE provincia =  'Alava'").success(function(rows){
 	// no errors
-	  console.log(rows);
 	  res.json(rows);
 	});
 });
 app.get('/buscar', function(req,res) {
 	db.query("SELECT * FROM  `vinedo`").success(function(rows){
 	// no errors
-	  console.log(rows);
 	  res.json(rows);
 	});
 });
 app.get('/log', function(req,res) {
 	db.query("SELECT * FROM  `usuario`").success(function(rows){
 	// no errors
-	  console.log(rows);
 	  res.json(rows);
 	});
 });
