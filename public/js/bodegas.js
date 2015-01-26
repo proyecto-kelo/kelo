@@ -191,7 +191,7 @@ $(document).ready(function(){
 			$(".tfbutton").click(function(){
 				var busqueda = document.getElementsByName('q')[0].value;
 				var provincia = "#vinos_";
-				alert("Se ha seleccionado: "+busqueda);
+				//alert("Se ha seleccionado: "+busqueda);
 				var str = busqueda;
 				var peq = str.toLowerCase();
 				var res = peq.split(" ");
@@ -210,14 +210,14 @@ $(document).ready(function(){
 					for (var j=0; j<res1.length; j++){
 						nombre+= res1[j];
 					}
-					alert("Hey! "+nombre);
+					//alert("Hey! "+nombre);
 					if(fin==nombre){
-						alert("hola");
+						//alert("hola");
 						provincia = provincia + data[i].provincia;
 						provincia = provincia.toLowerCase();
-						alert("la provincia es: "+provincia);
+						//alert("la provincia es: "+provincia);
 						$(provincia).css("display","block");
-						alert(nombre);
+						//alert(nombre);
 						
 						fin="#"+fin;
 						$(fin).css({opacity:1});
