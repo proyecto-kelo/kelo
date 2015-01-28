@@ -1,0 +1,51 @@
+
+	#fondo{
+		background: none;
+		height: 400px;
+		
+		margin-right: 10px;
+		margin-left: 50px;
+		margin-top:-50px;
+	}
+	#header{
+		float: left;
+	}
+	#header{
+		width: 100%;
+	}
+	#menu{
+		margin: 10px;
+	}
+
+	#audio{
+		display: none;
+	}
+
+	#cuadrados{
+
+		display: block;
+		
+
+	}
+	#box1{
+		width: 350px;
+		margin-bottom: 120px;
+		margin-left: 110px;
+	}
+
+	#box2{
+		width: 350px;
+		margin-bottom: 120px;
+		margin-left: 110px;
+	}
+
+	#box3{
+		width: 350px;
+		margin-bottom: 120px;
+		margin-left: 110px;
+	}
+
+	#tit{
+	padding-top: 180px;
+}
+

@@ -82,6 +82,7 @@ ul, ol {
 	padding-top: 8%;
 	margin-bottom: -33px;
 	display: -webkit-box;
+	
 	-webkit-box-orient: horizontal;
 	-webkit-box-pack:center;
 	height:450px;
@@ -552,6 +553,11 @@ audio{
 @media (max-width: 600px){
 	#fondo{
 		background: none;
+		height: 400px;
+		
+		margin-right: 10px;
+		margin-left: 50px;
+		margin-top:-50px;
 	}
 	#header{
 		float: left;
@@ -562,7 +568,40 @@ audio{
 	#menu{
 		margin: 10px;
 	}
+
+	#audio{
+		display: none;
+	}
+
+	#cuadrados{
+
+		display: block;
+		
+
+	}
+	#box1{
+		width: 350px;
+		margin-bottom: 120px;
+		margin-left: 110px;
+	}
+
+	#box2{
+		width: 350px;
+		margin-bottom: 120px;
+		margin-left: 110px;
+	}
+
+	#box3{
+		width: 350px;
+		margin-bottom: 120px;
+		margin-left: 110px;
+	}
+
+	#tit{
+	padding-top: 180px;
 }
+
+	
 @media (max-width: 750px){
 
 	input[type=text]{
