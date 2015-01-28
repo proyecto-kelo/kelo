@@ -2,7 +2,11 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var cookieParser = require('cookie-parser');
-
+//
+var exphbs  = require('express-handlebars');
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+//
 // CONEXION BASE DE DATOS //
 var sqlze = require('sequelize');
 var mysql =  require('mysql');
@@ -78,12 +82,41 @@ app.get('/buscar', function(req,res) {
 	  res.json(rows);
 	});
 });
+app.get('/modificar', function(req,res) {
+  db.query("SELECT * FROM  `vinedo`").success(function(rows){
+  // no errors
+  //console.log("HOLAAAAAAAAAAAAAAA"+req.param.nombre);
+    res.json(rows);
+    //res.send({redirect: '/modificar.html'});
+    
+  });
+});
 app.get('/log', function(req,res) {
 	db.query("SELECT * FROM  `usuario`").success(function(rows){
 	// no errors
 	  res.json(rows);
 	});
 });
+/*
+app.post('/cambio', function(req, res) {
+
+  db.query("SELECT * FROM  `vinedo` WHERE nombre='"+req.body.nombre+"'").success(function(rows){
+  // no errors
+    
+    
+    
+    
+  });
+
+
+});
+app.get('/cambio', function(req, res) {
+
+  
+
+  res.redirect("admin/modificar.html");
+
+});*/
 /******************************************************************
 // CONEXIÓN BASE DE DATOS
 // var user=process.env.USER;

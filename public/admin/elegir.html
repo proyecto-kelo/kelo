@@ -7,6 +7,9 @@
 <link rel="stylesheet" media="screen and (max-width: 1200px) and (min-width: 601px)" href="css-admin/responsiveform1.css" />
 <link rel="stylesheet" media="screen and (max-width: 600px) and (min-width: 351px)" href="css-admin/responsiveform2.css" />
 <link rel="stylesheet" media="screen and (max-width: 350px)" href="css-admin/responsiveform3.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js-admin/admin.js" type="text/javascript"></script>
+<script src="js-admin/main-admin.js" type="text/javascript"></script>
 </head>
 <body>
 	<div id="envelope">
@@ -16,15 +19,20 @@
 
 		</header>
 
-	<form action="" method="post">
+		<form id="formelegir" action="/modificar" method="get">
 
-		<label>Nombre Viñedo</label>
-		<input name="name" placeholder="Ejemplo:Ochoa" type="text" width="100px;">
-		<label>Provincia</label>
-		<input name="name" placeholder="Navarra, La Rioja o Alava" type="text" width="100px;">
+			<label>Nombre Viñedo</label>
+			<input id="nom" name="nombre" placeholder="Ejemplo:Ochoa" type="text" width="100px;">
+			<!--<label>Provincia</label>
+			<input name="name" placeholder="Navarra, La Rioja o Alava" type="text" width="100px;">-->
 
-		<input id="submit" type="submit" value="Modificar">
-	</form>
-</div>
+			<input id="buscados" type="button" value="Modificar" onclick="mostrarform()">
+		</form>
+	</div>
+	<div id="formularios">
+	</div>
+
+
+
 </body>
 </html>

@@ -42,7 +42,7 @@ padding: 15px;
 border-radius:5px;
 border:1px solid #7ac9b7;
 }
-input[type=submit]
+input[type=button]
 {
 margin-bottom: 20px;
 width:100%;
@@ -54,7 +54,7 @@ color: aliceblue;
 font-size:15px;
 cursor:pointer;
 }
-#submit:hover
+#button:hover
 {
 background-color: black;
 }

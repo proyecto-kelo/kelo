@@ -199,7 +199,7 @@ $(document).ready(function(){
 				for (var i=0; i<res.length; i++){
 					fin+= res[i];
 				}
-				alert("Despues: "+fin);
+				//alert("Despues: "+fin);
 				for (var i=0; i<data.length; i++){
 					var nombre = data[i].nombre;
 					//alert(nombre);
