@@ -46,6 +46,24 @@
 	}
 
 	#tit{
-	padding-top: 180px;
-}
+		padding-top: 180px;
+	}
+	div#otro{
+		display: none;
+	}
+	input[type=text]{
+		width: 50%;
+	}
+	.tftextinput{
+		font-size: 20px;
+	}
+	#vinos_navarra{
+		margin-top:120%;
+	}
+	#vinos_rioja{
+		margin-top:120%;
+	}
+	#vinos_alava{
+		margin-top:120%;
+	}
 

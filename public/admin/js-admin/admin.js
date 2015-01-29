@@ -1,10 +1,10 @@
 $(document).ready(function(){
 	$.ajax({	
 			type: "GET",
-			url: "/modificar",
+			url: "/elegir",
 			dataType: "json",
 			success: function(data){
-			var churro="";
+			var elegir="";
 			data.forEach(function(element, index, array) {				
 				
 				var str = element.nombre;
@@ -14,14 +14,107 @@ $(document).ready(function(){
 				for (var i=0; i<res.length; i++){
 					fin+= res[i];
 				}
-				churro +="<div id='envelope'><div id="+fin+" class='bodegasform'><header><img id='atras' src='ima-admin/back.png' width='60' height='60' ><h2>Modificar</h2></header><form id='formmodificar' method='post'><label>Nombre Viñedo</label><input id='nombre' name='nombre' value='"+data[index].nombre+"' type='text' width='100px;'><label>Provincia</label><input id='provincia' name='provincia' value='"+data[index].provincia+"' type='text' width='100px;'><label>Dirección</label><input id='direccion' name='direccion' value='"+data[index].direccion+"' type='text'><label>Email</label><input id='email' name='email' value='"+data[index].gmail+"' type='text' width='100px;'><label>Telefono</label><input id='telf' name='telf' value='"+data[index].telefono+"' type='text' width='100px;'><label>Información Corta</label><input id='info' name='info' value='"+data[index].infor+"' type='text'><label>Información Larga</label><textarea cols='15' id='informacion' name='informacion' value='"+data[index].informacion+"' rows='10'></textarea><label>Busqueda</label><input id='busqueda' name='busqueda' value='"+data[index].busqueda+"' type='text' width='100px;'><label>Tinto</label><textarea cols='15' id='tinto' name='tinto' value='"+data[index].tinto+"' rows='10'></textarea><label>Blanco</label><textarea cols='15' id='blanco' name='blanco' value='"+data[index].blanco+"' rows='10'></textarea><label>Rosado</label><textarea cols='15' id='rosado' name='rosado' value='"+data[index].rosado+"' rows='10'></textarea><label>Imagen</label><style>.thumb {height: 75px;border: 1px solid #000;margin: 10px 5px 0 0;}</style><input type='file' id='files' name='files[]' multiple /><output id='list'></output><br><br><input id='submit' type='button' value='Guardar'  onClick='princi.html'></form></div></div>";
+				elegir +="<div id="+fin+" class='bodegasform'><header><img id='atras' src='ima-admin/back.png' width='60' height='60' ><h2>Modificar</h2></header><form id='formmodificar' method='post'><label>Nombre Viñedo</label><input id='nombre' name='nombre' value='"+data[index].nombre+"' type='text' width='100px;' disabled><label>Provincia</label><input id='provincia' name='provincia' value='"+data[index].provincia+"' type='text' width='100px;'><label>Dirección</label><input id='direccion' name='direccion' value='"+data[index].direccion+"' type='text'><label>Email</label><input id='email' name='email' value='"+data[index].gmail+"' type='text' width='100px;'><label>Telefono</label><input id='telf' name='telf' value='"+data[index].telefono+"' type='text' width='100px;'><label>Información Corta</label><input id='info' name='info' value='"+data[index].infor+"' type='text'><label>Información Larga</label><textarea cols='15' id='informacion' name='informacion' value='' rows='10'>"+data[index].informacion+"</textarea><label>Busqueda</label><input id='busqueda' name='busqueda' value='"+data[index].busqueda+"' type='text' width='100px;'><label>Tinto</label><textarea cols='15' id='tinto' name='tinto' value='' rows='10'>"+data[index].tinto+"</textarea><label>Blanco</label><textarea cols='15' id='blanco' name='blanco' value='' rows='10'>"+data[index].blanco+"</textarea><label>Rosado</label><textarea cols='15' id='rosado' name='rosado' value='' rows='10'>"+data[index].rosado+"</textarea><label>Imagen</label><style>.thumb {height: 75px;border: 1px solid #000;margin: 10px 5px 0 0;}</style><input type='file' id='files' name='files[]' multiple /><output id='list'></output><br><br><input class='boton' id='modificar"+index+"' type='button' value='Guardar'></form></div>";
+
+					elegir += '
+					<script>  
+					document.getElementById("modificar'+index+'").onclick = function() {
+					 $.post("/modificar", {
+
+						nombre: document.getElementById("nombre").value	
+					}); 
+				}</script>';
 			
 			});
 			
 			
-			$("#formularios").append(churro);	 
+			$("#formularios").append(elegir);	 
 			}
 	});
+	/*$(document).ready(function() {
+
+	$(".boton").click(function(){
+
+		$.post('/modificar', {
+
+			nombre: document.getElementById('nombre').value
+
+		});
+
+	});*/
+
+});
+});
+
+/*
+    $( "#formmodificar" ).submit(function( event ) {
+
+        console.log("submit");
+        /* Stop form from submitting normally 
+        event.preventDefault();
+        alert("AITOR JOPUTA!");
+
+        var formmodificar = $(this).serializeArray();
+
+        $.ajax({
+           // type: "GET",
+           type: "POST",
+           url: "/user",
+           //dataType: "json",
+           dataType: "html",
+           data: formmodificar,
+
+           success: function(data){
+              console.log(data);
+              
+              nombre: document.getElementById('nombre').value;
+					provincia: document.getElementById('provincia').value;
+					infor: document.getElementById('infor').value;
+					informacion: document.getElementById('informacion').value;
+					direccion: document.getElementById('direccion').value;
+					telefono: document.getElementById('telefono').value;
+					gmail: document.getElementById('gmail').value;
+					busqueda: document.getElementById('busqueda').value;
+					tinto: document.getElementById('tinto').value;
+					blanco: document.getElementById('blanco').value;
+					rosado: document.getElementById('rosado').value;
+           }
+
+        });
+
+
+    });
+
+/*
+	var formmodificar = $(this).serializeArray();
+	
+	$.ajax({	
+			type: "POST",
+			url: "/modificar",
+			//dataType: "json",
+			dataType: "html",
+			data: formmodificar,
+			success: function(data){
+				$(".modificar").click(function(){
+					alert("KK");
+					nombre: document.getElementById('nombre').value;
+					provincia: document.getElementById('provincia').value;
+					infor: document.getElementById('infor').value;
+					informacion: document.getElementById('informacion').value;
+					direccion: document.getElementById('direccion').value;
+					telefono: document.getElementById('telefono').value;
+					gmail: document.getElementById('gmail').value;
+					busqueda: document.getElementById('busqueda').value;
+					tinto: document.getElementById('tinto').value;
+					blanco: document.getElementById('blanco').value;
+					rosado: document.getElementById('rosado').value;
+				});
+
+			}
+			
+	});
+
+
 });
 
 /*var datos=["","" ,"" ,"", "", "", "", "", "","","" ];
@@ -122,4 +215,17 @@ $(document).ready(function() {
 	});
 
 });
+
+nombre: document.getElementById('nombre').value,
+			provincia: document.getElementById('provincia').value,
+			infor: document.getElementById('infor').value,
+			informacion: document.getElementById('informacion').value,
+			direccion: document.getElementById('direccion').value,
+			telefono: document.getElementById('telefono').value,
+			gmail: document.getElementById('gmail').value,
+			busqueda: document.getElementById('busqueda').value,
+			tinto: document.getElementById('tinto').value,
+			blanco: document.getElementById('blanco').value,
+			rosado: document.getElementById('rosado').value
+
 */

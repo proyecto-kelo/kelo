@@ -18,6 +18,14 @@ padding:10px 0;
 border: 2px solid gray;
 border-radius:10px;
 }
+.bodegasform{
+	width: 55%;
+	margin: 10px 30% 10px 25%;
+	padding:10px 0;
+	border: 2px solid gray;
+	border-radius:10px;
+	display: none;
+}
 form{
 width:70%;
 margin:4% 15%;

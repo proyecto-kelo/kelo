@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var cookieParser = require('cookie-parser');
+var http = require('http');
 //
 var exphbs  = require('express-handlebars');
 app.engine('handlebars', exphbs());
@@ -82,7 +83,7 @@ app.get('/buscar', function(req,res) {
 	  res.json(rows);
 	});
 });
-app.get('/modificar', function(req,res) {
+app.get('/elegir', function(req,res) {
   db.query("SELECT * FROM  `vinedo`").success(function(rows){
   // no errors
   //console.log("HOLAAAAAAAAAAAAAAA"+req.param.nombre);
@@ -97,26 +98,27 @@ app.get('/log', function(req,res) {
 	  res.json(rows);
 	});
 });
-/*
-app.post('/cambio', function(req, res) {
 
-  db.query("SELECT * FROM  `vinedo` WHERE nombre='"+req.body.nombre+"'").success(function(rows){
+app.post('/modificar', function(req, res) {
+
+  db.query("UPDATE `vinedo` SET `infor`='"+req.body.infor+"', `provincia`='"+req.body.provincia+"', `informacion`='"+req.body.informacion+"', `telefono`='"+req.body.telefono+"', `direccion`='"+req.body.direccion+"', `gmail`='"+req.body.gmail+"', `tinto`='"+req.body.tinto+"', `blanco`='"+req.body.blanco+"', `rosado`='"+req.body.rosado+"' WHERE nombre='"+req.body.nombre+"'").success(function(rows){
   // no errors
     
-    
-    
+    console.log("HOLA BEBE");
+    //res.json(rows);
     
   });
 
 
 });
-app.get('/cambio', function(req, res) {
+
+app.post('/cambio', function(req, res) {
 
   
+  console.log("juas");
+  //res.redirect("admin/modificar.html");
 
-  res.redirect("admin/modificar.html");
-
-});*/
+});
 /******************************************************************
 // CONEXIÓN BASE DE DATOS
 // var user=process.env.USER;
