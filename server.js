@@ -11,23 +11,36 @@ app.set('view engine', 'handlebars');
 // CONEXION BASE DE DATOS //
 var sqlze = require('sequelize');
 var mysql =  require('mysql');
+
 //var db = new sqlze('kelo', 'adminPVADnlv', 'hIelxfWGujKy',{
 var db = new sqlze('kelo', 'root', 'zubiri',{
 dialect: 'mysql',
 port: 3306
 });
 //
-db
-.authenticate()
-.complete(function(err){
-if(!!err) {
-console.log('Unable to connect to database: ', err);
-} else {
-console.log('Connection OK!');
-}
+db.authenticate().complete(function(err){
+  if(!!err) {
+    console.log('Unable to connect to database: ', err);
+  } else {
+    console.log('Connection OK!');
+  }
 });
 
+/*
+var sys = require('sys');
 
+var Client = require('mysql').Client;
+var client = new Client ();
+
+client.user = 'adminPVADnlv';
+client.password = 'hIelxfWGujKy';
+
+client.connect(function(error, results){
+  if(error){
+    console.log('Error: '+error.message);
+    return;
+  }
+});*/
 
 // body-parser for POST
 // https://github.com/expressjs/body-parser
@@ -47,8 +60,8 @@ app.get('/', function(req, res) {
 });
 
 // Seleccion de la base de datos de los viñedos. Navarra, Rioja, Alava y todos.
-app.get('/navarra', function(req, res) {
-	db.query("SELECT * FROM  `vinedo` WHERE provincia =  'Navarra'").success(function(rows){
+app.get('/api', function(req, res) {
+	db.query("SELECT nombre,provincia,telefono,direccion,gmail FROM  `vinedo`").success(function(rows){
 	// no errors
 	  res.json(rows);
 	});
@@ -101,16 +114,27 @@ app.get('/log', function(req,res) {
 
 app.post('/modificar', function(req, res) {
 
-  db.query("UPDATE `vinedo` SET `infor`='"+req.body.infor+"', `provincia`='"+req.body.provincia+"', `informacion`='"+req.body.informacion+"', `telefono`='"+req.body.telefono+"', `direccion`='"+req.body.direccion+"', `gmail`='"+req.body.gmail+"', `tinto`='"+req.body.tinto+"', `blanco`='"+req.body.blanco+"', `rosado`='"+req.body.rosado+"' WHERE nombre='"+req.body.nombre+"'").success(function(rows){
-  // no errors
+
+console.log(req.body.nombre);
+  /*db.query("UPDATE `vinedo` SET `infor`='"+req.body.infor+"', `provincia`='"+req.body.provincia+"', `informacion`='"+req.body.informacion+"', `telefono`='"+req.body.telefono+"', `direccion`='"+req.body.direccion+"', `gmail`='"+req.body.gmail+"', `tinto`='"+req.body.tinto+"', `blanco`='"+req.body.blanco+"', `rosado`='"+req.body.rosado+"' WHERE nombre='"+req.body.nom+"'").success(function(rows){
+  // no errors*/
     
     console.log("HOLA BEBE");
     //res.json(rows);
-    
-  });
+    /*var data = '';
+req.on('data', function(chunk) {
+  data += chunk;
+});
+req.on('end', function() {
+  var post = qs.parse(data);
+  console.log(post);
+});
+  });*/
 
 
 });
+
+var qs = require('querystring');
 
 app.post('/cambio', function(req, res) {
 
