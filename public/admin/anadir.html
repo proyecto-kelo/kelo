@@ -13,100 +13,82 @@
 <body>
 <div id="envelope">
 
-<header>
-<img id="atras" src="ima-admin/close.png" width="60" height="60" ><h2>Añadir</h2>
+  <header>
+  <img id="atras" src="ima-admin/close.png" width="60" height="60" ><h2>Añadir</h2>
 
-</header>
+  </header>
 
-<form action="" method="post">
+  <form action="/anadir" method="post">
 
-<label>Nombre Viñedo</label>
-<input name="name" placeholder="Ejemplo:Ochoa" type="text" width="100px;">
-<label>Provincia</label>
-<input name="name" placeholder="Navarra, La Rioja o Alava" type="text" width="100px;">
-<label>Dirección</label>
-<input name="contact" placeholder="Ejemplo: Leitza Elgoyen 15" type="text">
-<label>Email</label>
-<input name="name" placeholder="Ejemplo@ejemplo.com" type="text" width="100px;">
-<label>Telefono</label>
-<input name="name" placeholder="Ejemplo: 956729674" type="text" width="100px;">
-<label>Información Corta</label>
-<input name="email" placeholder="..." type="text">
-<label>Información Larga</label>
-<textarea cols="15" name="message" placeholder="..." rows="10">
-</textarea>
+    <label>Nombre Viñedo</label>
+    <input name="nombre" placeholder="Ejemplo:Ochoa" type="text" width="100px;">
+    <label>Provincia</label>
+    <input name="provincia" placeholder="Navarra, La Rioja o Alava" type="text" width="100px;">
+    <label>Dirección</label>
+    <input name="direccion" placeholder="Ejemplo: Leitza Elgoyen 15" type="text">
+    <label>Email</label>
+    <input name="email" placeholder="Ejemplo@ejemplo.com" type="text" width="100px;">
+    <label>Telefono</label>
+    <input name="telefono" placeholder="Ejemplo: 956729674" type="text" width="100px;">
+    <label>Información Corta</label>
+    <input name="infor" placeholder="..." type="text">
+    <label>Información Larga</label>
+    <textarea cols="15" name="informacion" placeholder="..." rows="10">
+    </textarea>
+    <label>Busqueda</label>
+    <input name="busqueda" placeholder="URL busqueda Prestashop" type="text" width="100px;">
+    <label>Tinto</label>
+    <textarea cols="15" name="tinto" placeholder="URL de Prestashop (Imagen)" rows="10">
+    </textarea>
+    <label>Blanco</label>
+    <textarea cols="15" name="blanco" placeholder="URL de Prestashop (Imagen)" rows="10">
+    </textarea>
+    <label>Rosado</label>
+    <textarea cols="15" name="rodaso" placeholder="URL de Prestashop (Imagen)" rows="10">
+    </textarea>
+    <label>Imagen</label>
 
-<label>Busqueda</label>
-<input name="name" placeholder="URL busqueda Prestashop" type="text" width="100px;">
-
-
-
-<label>Tinto</label>
-<textarea cols="15" name="message" placeholder="URL de Prestashop (Imagen)" rows="10">
-</textarea>
-
-<label>Blanco</label>
-<textarea cols="15" name="message" placeholder="URL de Prestashop (Imagen)" rows="10">
-</textarea>
-
-<label>Rosado</label>
-<textarea cols="15" name="message" placeholder="URL de Prestashop (Imagen)" rows="10">
-</textarea>
-
-
-
-
-<label>Imagen</label>
-
-<style>
-  .thumb {
-    height: 75px;
-    border: 1px solid #000;
-    margin: 10px 5px 0 0;
-  }
-</style>
-
-<input type="file" id="files" name="files[]" multiple />
-<output id="list"></output>
-
-<script>
-  function handleFileSelect(evt) {
-    var files = evt.target.files; // FileList object
-
-    // Loop through the FileList and render image files as thumbnails.
-    for (var i = 0, f; f = files[i]; i++) {
-
-      // Only process image files.
-      if (!f.type.match('image.*')) {
-        continue;
+    <style>
+      .thumb {
+        height: 75px;
+        border: 1px solid #000;
+        margin: 10px 5px 0 0;
       }
+    </style>
 
-      var reader = new FileReader();
+    <input type="file" id="files" name="files[]" multiple />
+    <output id="list"></output>
 
-      // Closure to capture the file information.
-      reader.onload = (function(theFile) {
-        return function(e) {
-          // Render thumbnail.
-          var span = document.createElement('span');
-          span.innerHTML = ['<img class="thumb" src="', e.target.result,
-                            '" title="', escape(theFile.name), '"/>'].join('');
-          document.getElementById('list').insertBefore(span, null);
-        };
-      })(f);
+    <script>
+      function handleFileSelect(evt) {
+        var files = evt.target.files; // FileList object
+        // Loop through the FileList and render image files as thumbnails.
+        for (var i = 0, f; f = files[i]; i++) {
+          // Only process image files.
+          if (!f.type.match('image.*')) {
+            continue;
+          }
+          var reader = new FileReader();
+          // Closure to capture the file information.
+          reader.onload = (function(theFile) {
+            return function(e) {
+              // Render thumbnail.
+              var span = document.createElement('span');
+              span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                                '" title="', escape(theFile.name), '"/>'].join('');
+              document.getElementById('list').insertBefore(span, null);
+            };
+          })(f);
+          // Read in the image file as a data URL.
+          reader.readAsDataURL(f);
+        }
+      }
+      document.getElementById('files').addEventListener('change', handleFileSelect, false);
+    </script>
 
-      // Read in the image file as a data URL.
-      reader.readAsDataURL(f);
-    }
-  }
-
-  document.getElementById('files').addEventListener('change', handleFileSelect, false);
-</script>
-<br><br>
-<input id="submit" type="submit" value="Anadir">
-
-
-
-</form>
+    <br><br>
+    <input id="anadir" type="submit" value="Añadir">
+  </form>
 </div>
 </body>
 </html>

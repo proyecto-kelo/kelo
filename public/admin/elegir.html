@@ -19,20 +19,56 @@
 
 		</header>
 
-		<form id="formelegir" action="/elegir" method="get">
+		<form id="formbuscar" method="post" action="/buscar">
 
 			<label>Nombre Viñedo</label>
-			<input id="nom" name="nombre" placeholder="Ejemplo:Ochoa" type="text" width="100px;">
-			<!--<label>Provincia</label>
-			<input name="name" placeholder="Navarra, La Rioja o Alava" type="text" width="100px;">-->
+			<input id="nom" name="nom" placeholder="Ejemplo:Ochoa" type="text" width="100px;">
 
-			<input id="buscados" type="button" value="Modificar" onclick="mostrarform()">
+			<input type="submit" value="Buscar" id="buscar">
 		</form>
 	</div>
 	<div id="formularios">
+		<form id="formmodificar" method="post" action="/modificar" >
+    		<label>Nombre Viñedo</label>
+    		<input id="nombre" name="nombre" value="" type="text" width="100px;">
+    		<label>Provincia</label>
+    		<input id="provincia" name="provincia" value="" type="text" width="100px;">
+   		 	<label>Dirección</label>
+    		<input id="direccion" name="direccion" value="" type="text">
+   			<label>Email</label>
+    		<input id="gmail" name="gmail" value="" type="text" width="100px;">
+    		<label>Telefono</label>
+    		<input id="telf" name="telf" value="" type="text" width="100px;">
+		    <label>Información Corta</label>
+		    <input id="info" name="info" value="" type="text">
+		    <label>Información Larga</label>
+		    <textarea cols="15" id="informacion" name="informacion" value="" rows="10"></textarea>
+		    <label>Busqueda</label>
+		    <input id="busqueda" name="busqueda" value="" type="text" width="100px;">
+		    <label>Tinto</label>
+		    <textarea cols="15" id="tinto" name="tinto" value="" rows="10"></textarea>
+		    <label>Blanco</label>
+		    <textarea cols="15" id="blanco" name="blanco" value="" rows="10"></textarea>
+		    <label>Rosado</label>
+		    <textarea cols="15" id="rosado" name="rosado" value="" rows="10"></textarea>
+
+		    <label>Imagen</label>
+
+		      <style>
+		        .thumb {
+		          height: 75px;
+		          border: 1px solid #000;
+		          margin: 10px 5px 0 0;
+		        }
+		      </style>
+
+		    <input type="file" id="files" name="files[]" multiple />
+		    <output id="list"></output>
+
+		      
+		    <br><br>
+		    <input type="submit" value="Modificar" id="modificar">
+  		</form>
 	</div>
-
-
-
 </body>
 </html>

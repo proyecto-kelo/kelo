@@ -65,27 +65,21 @@ app.get('/api', function(req, res) {
 	// no errors
 	  res.json(rows);
 	});
-	db.query("SELECT count(*) FROM  `vinedo` WHERE provincia =  'Navarra'").success(function(rows){
-	// no errors
-	  res.json(rows);
-	});
+});
+app.get('/navarra', function(req, res) {
+  db.query("SELECT * FROM  `vinedo` WHERE provincia =  'Navarra'").success(function(rows){
+  // no errors
+    res.json(rows);
+  });
 });
 app.get('/rioja', function(req, res) {
 	db.query("SELECT * FROM  `vinedo` WHERE provincia =  'La Rioja'").success(function(rows){
 	// no errors
 	  res.json(rows);
 	});
-	db.query("SELECT count(*) FROM  `vinedo` WHERE provincia =  'La Rioja'").success(function(rows){
-	// no errors
-	  res.json(rows);
-	});
 });
 app.get('/alava', function(req, res) {
 	db.query("SELECT * FROM  `vinedo` WHERE provincia =  'Alava'").success(function(rows){
-	// no errors
-	  res.json(rows);
-	});
-	db.query("SELECT count(*) FROM  `vinedo` WHERE provincia =  'Alava'").success(function(rows){
 	// no errors
 	  res.json(rows);
 	});
@@ -113,36 +107,36 @@ app.get('/log', function(req,res) {
 });
 
 app.post('/modificar', function(req, res) {
-
-
-console.log(req.body.nombre);
-  /*db.query("UPDATE `vinedo` SET `infor`='"+req.body.infor+"', `provincia`='"+req.body.provincia+"', `informacion`='"+req.body.informacion+"', `telefono`='"+req.body.telefono+"', `direccion`='"+req.body.direccion+"', `gmail`='"+req.body.gmail+"', `tinto`='"+req.body.tinto+"', `blanco`='"+req.body.blanco+"', `rosado`='"+req.body.rosado+"' WHERE nombre='"+req.body.nom+"'").success(function(rows){
-  // no errors*/
-    
-    console.log("HOLA BEBE");
-    //res.json(rows);
-    /*var data = '';
-req.on('data', function(chunk) {
-  data += chunk;
-});
-req.on('end', function() {
-  var post = qs.parse(data);
-  console.log(post);
-});
-  });*/
-
-
+  db.query("UPDATE 'vinedo' SET provincia='"+req.body.provincia+"', direccion='"+req.body.direccion+"', gmail='"+req.body.gmail+"', telf='"+req.body.telf+"', infor='"+req.body.infor+"', informacion='"+req.body.informacion+"', busqueda='"+req.body.busqueda+"', tinto='"+req.body.tinto+"', blanco='"+req.body.blanco+"', rosado='"+req.body.rosdo+"' WHERE nombre='"+req.body.nom+"'").success(function(rows){
+    res.json(rows);
+    console.log("Actualizado correctamente! :D");
+  });
 });
 
-var qs = require('querystring');
-
-app.post('/cambio', function(req, res) {
-
-  
-  console.log("juas");
-  //res.redirect("admin/modificar.html");
-
+app.post('/buscar', function(req, res) {
+  db.query("SELECT * FROM  `vinedo` WHERE nombre='"+req.body.nom+"'").success(function(rows){
+    res.json(rows);
+    /* Una de dos */
+    //res.redicet("/admin/modificar.html");
+    res.redicet("/admin/elegir.html");    
+  });
 });
+app.post('/eliminar', function(req, res) {
+  db.query("DELETE FROM  `vinedo` WHERE nombre='"+req.body.nom+"'").success(function(rows){
+    console.log("Eliminado correctamente!");
+    res.redicet("/admin/princi.html");    
+  });
+});
+app.post('/anadir', function(req, res) {
+  db.query("INSERT INTO `vinedo` (nombre, provincia, direccion, gmail, telf, infor, informacion, busqueda, tinto, blanco, rosado, imagen) VALUES ('"+req.body.nombre+"', '"+req.body.provincia+"', '"+req.body.direccion+"', '"+req.body.email+"', '"+req.body.telefono+"', '"+req.body.infor+"', '"+req.body.informacion+"', '"+req.body.busqueda+"', '"+req.body.tinto+"', '"+req.body.blanco+"', '"+req.body.rosado+"', '"+req.body.imagen+"')").success(function(rows){
+    console.log("Añadido correctamente!");
+    res.redicet("/admin/princi.html");    
+  });
+});
+/*  
+INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal','Tom B. Erichsen','Skagen 21','Stavanger','4006','Norway');
+*/
 /******************************************************************
 // CONEXIÓN BASE DE DATOS
 // var user=process.env.USER;

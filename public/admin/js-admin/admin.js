@@ -1,6 +1,96 @@
 $(document).ready(function(){
-
-$("#modificar").click(function(){
+	$( "#buscar" ).submit(function( event ) {
+        //console.log("submit");
+        event.preventDefault();
+        //alert("por favor");
+        var formData = $(this).serializeArray();
+		$.ajax({	
+				type: "POST",
+				url: "/buscar",
+				//dataType: "json",
+				dataType: "html",
+				data: formData,
+				success: function(data){
+						//alert("KK");
+						document.getElementById('nombre').value=data.nombre;
+						document.getElementById('provincia').value=data.provincia;
+						document.getElementById('direccion').value=data.direcion;
+						document.getElementById('email').value=data.email;
+						document.getElementById('telf').value=data.telefono;
+						document.getElementById('info').value=data.infor;
+						document.getElementById('informacion').value=data.informacion;
+						document.getElementById('busqueda').value=data.busqueda;
+						document.getElementById('tinto').value=data.tinto;
+						document.getElementById('blanco').value=data.blanco;
+						document.getElementById('rosado').value=data.rosado;
+				}
+		});
+	});
+	$( "#modificar" ).submit(function( event ) {
+        //console.log("submit");
+        event.preventDefault();
+        //alert("por favor");
+        var formData = $(this).serializeArray();
+		$.ajax({	
+				type: "POST",
+				url: "/modificar",
+				//dataType: "json",
+				dataType: "html",
+				data: formData,
+				success: function(data){
+					/* Validaciones */
+					alert("Aqui validaciones!");
+				}
+		});
+	});
+	$( "#eliminar" ).submit(function( event ) {
+        //console.log("submit");
+        event.preventDefault();
+        //alert("por favor");
+        var formData = $(this).serializeArray();
+		$.ajax({	
+				type: "POST",
+				url: "/eliminar",
+				//dataType: "json",
+				dataType: "html",
+				data: formData,
+				success: function(data){
+					/* Validaciones */
+					alert("Aqui validaciones!");
+				}
+		});
+	});
+	$( "#anadir" ).submit(function( event ) {
+        //console.log("submit");
+        event.preventDefault();
+        //alert("por favor");
+        var formData = $(this).serializeArray();
+		$.ajax({	
+				type: "POST",
+				url: "/anadir",
+				//dataType: "json",
+				dataType: "html",
+				data: formData,
+				success: function(data){
+					/* Validaciones */
+					alert("Aqui validaciones!");
+				}
+		});
+	});
+});
+/*nombre: document.getElementById('nombre').value;
+					provincia: document.getElementById('provincia').value;
+					infor: document.getElementById('infor').value;
+					informacion: document.getElementById('informacion').value;
+					direccion: document.getElementById('direccion').value;
+					telefono: document.getElementById('telefono').value;
+					gmail: document.getElementById('gmail').value;
+					busqueda: document.getElementById('busqueda').value;
+					tinto: document.getElementById('tinto').value;
+					blanco: document.getElementById('blanco').value;
+					rosado: document.getElementById('rosado').value;
+				*/
+/*
 	$.ajax({	
 			type: "GET",
 			url: "/elegir",
@@ -27,14 +117,13 @@ $("#modificar").click(function(){
 						nombre: document.getElementById('nombre').value	
 					}); 
 				}</script>";*/
-			
+		/*	
 			});
 			
 			
 			$("#formularios").append(elegir);	 
 			}
 	});
-	mostrarform();
 
 	/*$(document).ready(function() {
 
@@ -47,15 +136,21 @@ $("#modificar").click(function(){
 		});
 
 	});*/
+ /*$( "#formmodificar0" ).submit(function( event ) {
 
-	var formmodificar = $(this).serializeArray();
+        console.log("submit");
+        /* Stop form from submitting normally 
+        event.preventDefault();
+
+
+        var formData = $(this).serializeArray();
 	
 	$.ajax({	
 			type: "POST",
 			url: "/modificar",
 			//dataType: "json",
 			dataType: "html",
-			data: formmodificar,
+			data: formData,
 			success: function(data){
 				
 					alert("KK");
@@ -76,11 +171,6 @@ $("#modificar").click(function(){
 			});
 	});
 });
-function mostrarform(){
-	var nombre=document.getElementById("nom").value
-    $('.bodegasform').css( "display", "none");
-    $('#'+nombre).css( "display", "block");
-}
 /*
     $( "#formmodificar" ).submit(function( event ) {
 
