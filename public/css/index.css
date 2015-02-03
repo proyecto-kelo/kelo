@@ -2,6 +2,10 @@ body{
 	/*background-image: url(../images/fondo.jpg);*/
 	height: 100%;
 }
+p.justificado{
+	text-align: justify;
+    text-justify: inter-word;
+}
 a {
     text-decoration: none;
 }
@@ -26,15 +30,6 @@ a:active {
 }
 #header{
 	width: 40%;
-	float: right;
-}
-#header2{
-	width: 100%;
-}
-#titu{
-	float: left;
-}
-#men{
 	float: right;
 }
 /* Fondo de la imagen de arriba */
@@ -557,8 +552,7 @@ textarea:focus {
 	margin-left: -10px;
 	border: 20px solid #101010;
 	position:fixed;
-	bottom:20px;
-	width: 100%;
+	bottom:0px;
 }
 audio{
 	width:100%;

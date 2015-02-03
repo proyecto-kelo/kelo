@@ -52,7 +52,7 @@ $(document).ready(function(){
 				// Introducimos todos los atributos correspondientes del viñedo desde la bd
 				//
 				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></a></article>";	//									
-				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p>"+slider+"</div></div>";
+				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p class='justificado'>"+element.informacion+"</p>"+slider+"</div></div>";
 			});
 			// Cerramos los <div> del principio
 			bodegas += "</div>";

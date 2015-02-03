@@ -66,6 +66,18 @@ app.get('/api', function(req, res) {
 	  res.json(rows);
 	});
 });
+app.get('/api/vino/:nom', function(req, res) {
+  db.query("SELECT nombre,tinto,blanco,rosado FROM  `vinedo` WHERE nombre =  '"+req.params.nom+"'").success(function(rows){
+  // no errors
+    res.json(rows);
+  });
+});
+app.get('/api/vinedo/:infor', function(req, res) {
+  db.query("SELECT nombre,infor,informacion FROM  `vinedo` WHERE nombre =  '"+req.params.infor+"'").success(function(rows){
+  // no errors
+    res.json(rows);
+  });
+});
 app.get('/navarra', function(req, res) {
   db.query("SELECT * FROM  `vinedo` WHERE provincia =  'Navarra'").success(function(rows){
   // no errors
@@ -107,30 +119,27 @@ app.get('/log', function(req,res) {
 });
 
 app.post('/modificar', function(req, res) {
-  db.query("UPDATE 'vinedo' SET provincia='"+req.body.provincia+"', direccion='"+req.body.direccion+"', gmail='"+req.body.gmail+"', telf='"+req.body.telf+"', infor='"+req.body.infor+"', informacion='"+req.body.informacion+"', busqueda='"+req.body.busqueda+"', tinto='"+req.body.tinto+"', blanco='"+req.body.blanco+"', rosado='"+req.body.rosdo+"' WHERE nombre='"+req.body.nom+"'").success(function(rows){
+  db.query("UPDATE vinedo SET nombre='"+req.body.nombre+"', provincia='"+req.body.provincia+"', direccion='"+req.body.direccion+"', gmail='"+req.body.gmail+"', telefono='"+req.body.telf+"', infor='"+req.body.infor+"', informacion='"+req.body.informacion+"', busqueda='"+req.body.busqueda+"', tinto='"+req.body.tinto+"', blanco='"+req.body.blanco+"', rosado='"+req.body.rosado+"', imagen='"+req.body.imagen+"' WHERE nombre='"+req.body.nombre+"'").success(function(rows){
     res.json(rows);
     console.log("Actualizado correctamente! :D");
+    res.redirect("/admin/princi.html");
   });
 });
-
 app.post('/buscar', function(req, res) {
-  db.query("SELECT * FROM  `vinedo` WHERE nombre='"+req.body.nom+"'").success(function(rows){
+  db.query("SELECT * FROM `vinedo` WHERE nombre='"+req.body.nom+"'").success(function(rows){
     res.json(rows);
-    /* Una de dos */
-    //res.redicet("/admin/modificar.html");
-    res.redicet("/admin/elegir.html");    
   });
 });
 app.post('/eliminar', function(req, res) {
-  db.query("DELETE FROM  `vinedo` WHERE nombre='"+req.body.nom+"'").success(function(rows){
+  db.query("DELETE FROM  `vinedo` WHERE nombre='"+req.body.nombre+"'").success(function(rows){
     console.log("Eliminado correctamente!");
-    res.redicet("/admin/princi.html");    
+    res.redirect("/admin/princi.html");    
   });
 });
 app.post('/anadir', function(req, res) {
-  db.query("INSERT INTO `vinedo` (nombre, provincia, direccion, gmail, telf, infor, informacion, busqueda, tinto, blanco, rosado, imagen) VALUES ('"+req.body.nombre+"', '"+req.body.provincia+"', '"+req.body.direccion+"', '"+req.body.email+"', '"+req.body.telefono+"', '"+req.body.infor+"', '"+req.body.informacion+"', '"+req.body.busqueda+"', '"+req.body.tinto+"', '"+req.body.blanco+"', '"+req.body.rosado+"', '"+req.body.imagen+"')").success(function(rows){
+  db.query("INSERT INTO `vinedo` (nombre, provincia, direccion, gmail, telefono, infor, informacion, busqueda, tinto, blanco, rosado, imagen) VALUES ('"+req.body.nombre+"', '"+req.body.provincia+"', '"+req.body.direccion+"', '"+req.body.email+"', '"+req.body.telefono+"', '"+req.body.infor+"', '"+req.body.informacion+"', '"+req.body.busqueda+"', '"+req.body.tinto+"', '"+req.body.blanco+"', '"+req.body.rosado+"', '"+req.body.imagen+"')").success(function(rows){
     console.log("Añadido correctamente!");
-    res.redicet("/admin/princi.html");    
+    res.redirect("/admin/princi.html");    
   });
 });
 /*  
