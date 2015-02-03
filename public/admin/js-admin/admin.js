@@ -74,7 +74,7 @@ $(document).ready(function(){
 				data: formData,
 				success: function(data){
 					/* Validaciones */
-					alert("Aqui validaciones!");
+					validarCampos();
 				}
 		});
 	});
