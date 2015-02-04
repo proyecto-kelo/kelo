@@ -119,28 +119,59 @@ app.get('/log', function(req,res) {
 });
 
 app.post('/modificar', function(req, res) {
-  db.query("UPDATE vinedo SET nombre='"+req.body.nombre+"', provincia='"+req.body.provincia+"', direccion='"+req.body.direccion+"', gmail='"+req.body.gmail+"', telefono='"+req.body.telf+"', infor='"+req.body.infor+"', informacion='"+req.body.informacion+"', busqueda='"+req.body.busqueda+"', tinto='"+req.body.tinto+"', blanco='"+req.body.blanco+"', rosado='"+req.body.rosado+"', imagen='"+req.body.imagen+"' WHERE nombre='"+req.body.nombre+"'").success(function(rows){
-    res.json(rows);
-    console.log("Actualizado correctamente! :D");
-    res.redirect("/admin/princi.html");
-  });
+  if((req.body.nombre==undefined) || (req.body.provincia==undefined) || (req.body.direccion==undefined) || (req.body.gmail==undefined) || (req.body.telf==undefined) || (req.body.infor==undefined) || (req.body.informacion==undefined) || (req.body.busqueda==undefined) || (req.body.imagen==undefined)){
+    console.log(req.body.nombre);
+    console.log("Algun campo vacio!");
+  }else{
+    db.query("UPDATE vinedo SET nombre='"+req.body.nombre+"', provincia='"+req.body.provincia+"', direccion='"+req.body.direccion+"', gmail='"+req.body.gmail+"', telefono='"+req.body.telf+"', infor='"+req.body.infor+"', informacion='"+req.body.informacion+"', busqueda='"+req.body.busqueda+"', tinto='"+req.body.tinto+"', blanco='"+req.body.blanco+"', rosado='"+req.body.rosado+"', imagen='"+req.body.imagen+"' WHERE nombre='"+req.body.nombre+"'").success(function(rows){
+      res.json(rows);
+      console.log("Actualizado correctamente! :D");
+      res.redirect("/admin/princi.html");
+    });
+  }
 });
 app.post('/buscar', function(req, res) {
-  db.query("SELECT * FROM `vinedo` WHERE nombre='"+req.body.nom+"'").success(function(rows){
-    res.json(rows);
+  db.query("SELECT COUNT(nombre) FROM `vinedo` WHERE nombre='"+req.body.nom+"'").success(function(rows){
+    if(rows==0){
+      console.log("no existe el viñedo "+req.body.nom);
+    }else{
+      db.query("SELECT * FROM `vinedo` WHERE nombre='"+req.body.nom+"'").success(function(rows){
+        res.json(rows);
+      });
+    }
   });
 });
+/*
+IF EXISTS (SELECT * FROM Table1 WHERE Column1='SomeValue')
+    UPDATE Table1 SET (...) WHERE Column1='SomeValue'
+ELSE
+    INSERT INTO Table1 VALUES (...)
+*/
 app.post('/eliminar', function(req, res) {
-  db.query("DELETE FROM  `vinedo` WHERE nombre='"+req.body.nombre+"'").success(function(rows){
-    console.log("Eliminado correctamente!");
-    res.redirect("/admin/princi.html");    
-  });
+  if(req.body.nombre==""){
+    console.log("Escribe algo!");
+  }else{
+    db.query("IF EXISTS (SELECT * FROM `vinedo` WHERE nombre='"+req.body.nombre+"') DELETE FROM `vinedo` WHERE nombre='"+req.body.nombre+"' ELSE print 'kk'").success(function(rows){
+        console.log("Eliminado correctamente!");
+        res.redirect("/admin/princi.html"); 
+    });
+    /*db.query("DELETE FROM `vinedo` WHERE nombre='"+req.body.nombre+"'").success(function(rows){
+      console.log("Eliminado correctamente!");
+      res.redirect("/admin/princi.html");    
+    });*/
+  }
 });
 app.post('/anadir', function(req, res) {
+  if((req.body.nombre==undefined) || (req.body.provincia==undefined) || (req.body.direccion==undefined) || (req.body.gmail==undefined) || (req.body.telf==undefined) || (req.body.infor==undefined) || (req.body.informacion==undefined) || (req.body.busqueda==undefined) || (req.body.imagen==undefined)){
+    console.log(req.body.nombre);
+    console.log("Algun campo vacio!");
+  }else{
   db.query("INSERT INTO `vinedo` (nombre, provincia, direccion, gmail, telefono, infor, informacion, busqueda, tinto, blanco, rosado, imagen) VALUES ('"+req.body.nombre+"', '"+req.body.provincia+"', '"+req.body.direccion+"', '"+req.body.email+"', '"+req.body.telefono+"', '"+req.body.infor+"', '"+req.body.informacion+"', '"+req.body.busqueda+"', '"+req.body.tinto+"', '"+req.body.blanco+"', '"+req.body.rosado+"', '"+req.body.imagen+"')").success(function(rows){
     console.log("Añadido correctamente!");
+    console.log("server");
     res.redirect("/admin/princi.html");    
   });
+}
 });
 /*  
 INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)

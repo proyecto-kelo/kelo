@@ -15,4 +15,47 @@ function mostrarform(){
     $('.bodegasform').css( "display", "none");
     $('#'+nombre).css( "display", "block");
 }
-
+function validarCampos(){
+	if(document.getElementById("nombre")==null){
+		alert("Introduce el campo nombre!");
+	}else{
+		if(document.getElementById("provincia")==null){
+			alert("Introduce el campo provincia!");
+		}else{
+			if(document.getElementById("direccion")==null){
+				alert("Introduce el campo direccion!");
+			}else{
+				if(document.getElementById("gmail")==null){
+					alert("Introduce el campo email!");
+				}else{
+					if(document.getElementById("telf")==null){
+						alert("Introduce el campo telefono!");
+					}else{
+						if(document.getElementById("infor")==null){
+							alert("Introduce el campo informacion corta!");
+						}else{
+							if(document.getElementById("informacion")=null){
+								alert("Introduce el campo informacion larga!");
+							}else{
+								if(document.getElementById("busqueda")=null){
+									alert("Introduce el campo busqueda!");
+								}else{
+									if(document.getElementById("imagen")=null){
+										alert("Introduce el campo imagen!");
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+function validarNombre(){
+	if(document.getElementById("nombre").value==""){
+		alert("Introduce el campo nombre!");
+	}else{
+		alert("lleno");
+	}
+}

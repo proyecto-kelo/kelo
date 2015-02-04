@@ -62,7 +62,6 @@ $(document).ready(function(){
 		});
 	});
 	$( "#formanadir" ).submit(function( event ) {
-        //console.log("submit");
         event.preventDefault();
         //alert("por favor");
         var formData = $(this).serializeArray();
@@ -74,55 +73,9 @@ $(document).ready(function(){
 				data: formData,
 				success: function(data){
 					/* Validaciones */
-					validarCampos();
+					alert("cliente");
+					
 				}
 		});
 	});
-	function validarCampos(){
-		var nombre = document.getElementById("nombre").value;
-		var provincia = document.getElementById("provincia").value;
-		var direccion = document.getElementById("direccion").value;
-		var gmail = document.getElementById("gmail").value;
-		var telefono = document.getElementById("tefl").value;
-		var infor = document.getElementById("infor").value;
-		var informacion = document.getElementById("informacion").value;
-		var busqueda = document.getElementById("busqueda").value;
-		var imagen = document.getElementById("imagen").value;
-
-		if(nombre==""){
-			alert("Introduce el campo nombre!");
-		}else{
-			if(provincia=""){
-				alert("Introduce el campo provincia!");
-			}else{
-				if(direccion=""){
-					alert("Introduce el campo direccion!");
-				}else{
-					if(gmail=""){
-						alert("Introduce el campo email!");
-					}else{
-						if(telefono=""){
-							alert("Introduce el campo telefono!");
-						}else{
-							if(infor=""){
-								alert("Introduce el campo informacion corta!");
-							}else{
-								if(informacion=""){
-									alert("Introduce el campo informacion larga!");
-								}else{
-									if(busqueda=""){
-										alert("Introduce el campo busqueda!");
-									}else{
-										if(imagen=""){
-											alert("Introduce el campo imagen!");
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
 });

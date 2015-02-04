@@ -30,7 +30,7 @@
 	<div id="formularios">
 		<form id="formmodificar" method="post" action="/modificar" >
     		<label>Nombre Viñedo</label>
-    		<input id="nombre" name="nombre" value="" type="text" width="100px;">
+    		<input id="nombre" name="nombre" value="" type="text" width="100px;" readonly>
     		<label>Provincia</label>
     		<input id="provincia" name="provincia" value="" type="text" width="100px;">
    		 	<label>Dirección</label>
@@ -54,7 +54,7 @@
 		    <label>Imagen</label>
 		    <textarea cols="15" id="imagen" name="imagen" value="" rows="5"></textarea>
 		    <br><br>
-		    <input type="submit" value="Modificar" id="modificar">
+		    <input type="submit" value="Modificar" id="modificar" onclick="validarCampos()">
   		</form>
 	</div>
 </body>
