@@ -12,6 +12,8 @@ $(document).ready(function(){
 				data: formData,
 				success: function(data){
 					//alert("KK");
+
+					//rellenar la informacion para modificarlo
 					$('#nombre').val(data[0].nombre);
 					$('#provincia').val(data[0].provincia);
 					$('#direccion').val(data[0].direccion);
@@ -24,6 +26,22 @@ $(document).ready(function(){
 					$('#blanco').val(data[0].blanco);
 					$('#rosado').val(data[0].rosado);
 					$('#imagen').val(data[0].imagen);
+
+					//poner disponibles las areas
+					$("#provincia").prop("readonly",false);
+					$("#direccion").prop("readonly",false);
+					$("#gmail").prop("readonly",false);
+					$("#telf").prop("readonly",false);
+					$("#infor").prop("readonly",false);
+					$("#informacion").prop("readonly",false);
+					$("#busqueda").prop("readonly",false);
+					$("#tinto").prop("readonly",false);
+					$("#blanco").prop("readonly",false);
+					$("#rosado").prop("readonly",false);
+					$("#imagen").prop("readonly",false);
+
+					$("#modificar").prop("disabled",false);
+
 				}
 		});
 	});

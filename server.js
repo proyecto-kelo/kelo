@@ -13,7 +13,7 @@ var sqlze = require('sequelize');
 var mysql =  require('mysql');
 
 //var db = new sqlze('kelo', 'adminPVADnlv', 'hIelxfWGujKy',{
-var db = new sqlze('kelo', 'root', 'zubiri',{
+var db = new sqlze('kelo', 'root', 'mysql',{
 dialect: 'mysql',
 port: 3306
 });
