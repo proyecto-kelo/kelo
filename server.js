@@ -142,18 +142,25 @@ app.post('/buscar', function(req, res) {
   });
 });
 /*
-IF EXISTS (SELECT * FROM Table1 WHERE Column1='SomeValue')
-    UPDATE Table1 SET (...) WHERE Column1='SomeValue'
-ELSE
-    INSERT INTO Table1 VALUES (...)
+IF EXISTS(SELECT * FROM sys.columns 
+        WHERE [name] = N'columnName' AND [object_id] = OBJECT_ID(N'tableName'))
+BEGIN
+    -- Column Exists
+END
 */
 app.post('/eliminar', function(req, res) {
   if(req.body.nombre==""){
     console.log("Escribe algo!");
   }else{
-    db.query("IF EXISTS (SELECT * FROM `vinedo` WHERE nombre='"+req.body.nombre+"') DELETE FROM `vinedo` WHERE nombre='"+req.body.nombre+"' ELSE print 'kk'").success(function(rows){
-        console.log("Eliminado correctamente!");
-        res.redirect("/admin/princi.html"); 
+    db.query("SELECT * FROM `vinedo` WHERE nombre='"+req.body.nombre+"'").success(function(rows){
+      if(rows==""){
+        console.log("No existe!");
+      }else{
+        db.query("DELETE FROM `vinedo` WHERE nombre='"+req.body.nombre+"'").success(function(rows){
+          console.log("Eliminado correctamente!");
+          res.redirect("/admin/princi.html");    
+        });
+      }
     });
     /*db.query("DELETE FROM `vinedo` WHERE nombre='"+req.body.nombre+"'").success(function(rows){
       console.log("Eliminado correctamente!");
@@ -163,15 +170,19 @@ app.post('/eliminar', function(req, res) {
 });
 app.post('/anadir', function(req, res) {
   if((req.body.nombre==undefined) || (req.body.provincia==undefined) || (req.body.direccion==undefined) || (req.body.gmail==undefined) || (req.body.telf==undefined) || (req.body.infor==undefined) || (req.body.informacion==undefined) || (req.body.busqueda==undefined) || (req.body.imagen==undefined)){
-    console.log(req.body.nombre);
     console.log("Algun campo vacio!");
   }else{
-  db.query("INSERT INTO `vinedo` (nombre, provincia, direccion, gmail, telefono, infor, informacion, busqueda, tinto, blanco, rosado, imagen) VALUES ('"+req.body.nombre+"', '"+req.body.provincia+"', '"+req.body.direccion+"', '"+req.body.email+"', '"+req.body.telefono+"', '"+req.body.infor+"', '"+req.body.informacion+"', '"+req.body.busqueda+"', '"+req.body.tinto+"', '"+req.body.blanco+"', '"+req.body.rosado+"', '"+req.body.imagen+"')").success(function(rows){
-    console.log("Añadido correctamente!");
-    console.log("server");
-    res.redirect("/admin/princi.html");    
-  });
-}
+    db.query("SELECT * FROM `vinedo` WHERE nombre='"+req.body.nombre+"'").success(function(rows){
+      if(rows!=""){
+        console.log("Viñedo existente, prueba con otro nombre!");
+      }else{
+        db.query("INSERT INTO `vinedo` (nombre, provincia, direccion, gmail, telefono, infor, informacion, busqueda, tinto, blanco, rosado, imagen) VALUES ('"+req.body.nombre+"', '"+req.body.provincia+"', '"+req.body.direccion+"', '"+req.body.gmail+"', '"+req.body.telf+"', '"+req.body.infor+"', '"+req.body.informacion+"', '"+req.body.busqueda+"', '"+req.body.tinto+"', '"+req.body.blanco+"', '"+req.body.rosado+"', '"+req.body.imagen+"')").success(function(rows){
+          console.log("Añadido correctamente!");
+          res.redirect("/admin/princi.html");
+        });
+      }
+    });
+  }
 });
 /*  
 INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)

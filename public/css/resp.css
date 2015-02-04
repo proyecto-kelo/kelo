@@ -1,4 +1,28 @@
+html{
+	margin-left: -12%;
+	margin-right: -12%;
+	
+}
+.modalDialog > div {
+	width: 100px;
+}
+#cuadrados{
+	width: 450px;
+}
+#logo{
+	margin-top: -50px;
+}
+#tfnewsearch{
+	margin-top: -40px
+}
+.vinedos > div > div {
+	width: 370px;
 
+}
+.vinedos >  div {
+	font-size: 12px;
+margin-top: -10px;
+}
 	#fondo{
 		background: none;
 		height: 400px;

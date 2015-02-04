@@ -28,42 +28,37 @@ $(document).ready(function(){
 		});
 	});
 	$( "#formmodificar" ).submit(function( event ) {
-        //console.log("submit");
         event.preventDefault();
-        //alert("por favor");
         var formData = $(this).serializeArray();
 		$.ajax({	
 				type: "POST",
 				url: "/modificar",
-				//dataType: "json",
 				dataType: "html",
 				data: formData,
 				success: function(data){
 					/* Validaciones */
-					alert("Aqui validaciones!");
+					alert("Modificado correctamente!");
+					window.location.href="princi.html";
 				}
 		});
 	});
 	$( "#formeliminar" ).submit(function( event ) {
-        //console.log("submit");
         event.preventDefault();
-        //alert("por favor");
         var formData = $(this).serializeArray();
 		$.ajax({	
 				type: "POST",
 				url: "/eliminar",
-				//dataType: "json",
 				dataType: "html",
 				data: formData,
 				success: function(data){
 					/* Validaciones */
-					alert("Aqui validaciones!");
+					alert("Eliminado correctamente");
+					window.location.href="princi.html";
 				}
 		});
 	});
 	$( "#formanadir" ).submit(function( event ) {
         event.preventDefault();
-        //alert("por favor");
         var formData = $(this).serializeArray();
 		$.ajax({	
 				type: "POST",
@@ -73,8 +68,8 @@ $(document).ready(function(){
 				data: formData,
 				success: function(data){
 					/* Validaciones */
-					alert("cliente");
-					
+					alert("Añadido correctamente");
+					window.location.href="princi.html";
 				}
 		});
 	});

@@ -17,40 +17,40 @@
 <div id="envelope">
 
   <header>
-  <img id="atras" src="ima-admin/close.png" width="60" height="60" ><h2>Añadir</h2>
+  <img id="atras" src="ima-admin/close.png" width="60" height="60" onclick="location.href='/admin/princi.html'" style="cursor: pointer;"><h2>Añadir</h2>
 
   </header>
 
   <form id="formanadir" method="post" action="/anadir">
 
     <label>Nombre Viñedo</label>
-    <input name="nombre" placeholder="Ejemplo:Ochoa" type="text" width="100px;">
+    <input id="nombre" name="nombre" placeholder="Ejemplo:Ochoa" type="text" width="100px;">
     <label>Provincia</label>
-    <input name="provincia" placeholder="Navarra, La Rioja o Alava" type="text" width="100px;">
+    <input id="provincia" name="provincia" placeholder="Navarra, La Rioja o Alava" type="text" width="100px;">
     <label>Dirección</label>
-    <input name="direccion" placeholder="Ejemplo: Leitza Elgoyen 15" type="text">
+    <input id="direccion" name="direccion" placeholder="Ejemplo: Leitza Elgoyen 15" type="text">
     <label>Email</label>
-    <input name="email" placeholder="Ejemplo@ejemplo.com" type="text" width="100px;">
+    <input id="gmail" name="gmail" placeholder="Ejemplo@ejemplo.com" type="text" width="100px;">
     <label>Telefono</label>
-    <input name="telefono" placeholder="Ejemplo: 956729674" type="text" width="100px;">
+    <input id="telf" name="telf" placeholder="Ejemplo: 956729674" type="text" width="100px;">
     <label>Información Corta</label>
-    <input name="infor" placeholder="..." type="text">
+    <input id="infor" name="infor" placeholder="..." type="text">
     <label>Información Larga</label>
-    <textarea cols="15" name="informacion" placeholder="..." rows="10">
+    <textarea cols="15" id="informacion" name="informacion" placeholder="..." rows="10">
     </textarea>
     <label>Busqueda</label>
-    <input name="busqueda" placeholder="URL busqueda Prestashop" type="text" width="100px;">
+    <input id="busqueda" name="busqueda" placeholder="URL busqueda Prestashop" type="text" width="100px;">
     <label>Tinto</label>
-    <textarea cols="15" name="tinto" placeholder="URL de Prestashop (Imagen)" rows="10">
+    <textarea cols="15" id="tinto" name="tinto" placeholder="URL de Prestashop (Imagen)" rows="10">
     </textarea>
     <label>Blanco</label>
-    <textarea cols="15" name="blanco" placeholder="URL de Prestashop (Imagen)" rows="10">
+    <textarea cols="15" id="blanco" name="blanco" placeholder="URL de Prestashop (Imagen)" rows="10">
     </textarea>
     <label>Rosado</label>
-    <textarea cols="15" name="rosado" placeholder="URL de Prestashop (Imagen)" rows="10">
+    <textarea cols="15" id="rosado" name="rosado" placeholder="URL de Prestashop (Imagen)" rows="10">
     </textarea>
     <label>Imagen</label>
-    <textarea cols="15" name="imagen" placeholder="URL de Prestashop (Imagen)" rows="10"> </textarea>
+    <textarea cols="15" id="imagen" name="imagen" placeholder="URL de Prestashop (Imagen)" rows="10"> </textarea>
     <br><br>
     <input id="anadir" type="submit" value="Añadir" onclick="validarCampos()">
   </form>
