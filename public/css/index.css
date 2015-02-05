@@ -527,9 +527,6 @@ textarea:focus {
 	-moz-transition: opacity 400ms ease-in;
 	transition: opacity 400ms ease-in;
 }
-.vinedos > #close:target{
-	opacity: 0;
-}
 /****************************************************/
 /* Slider */
 .imgpeke{
