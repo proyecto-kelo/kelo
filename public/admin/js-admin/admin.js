@@ -91,4 +91,21 @@ $(document).ready(function(){
 				}
 		});
 	});
+	$( "#formlog" ).submit(function( event ) {
+        event.preventDefault();
+        var formData = $(this).serializeArray();
+		$.ajax({	
+				type: "POST",
+				url: "/log",
+				//dataType: "json",
+				dataType: "html",
+				data: formData,
+				success: function(data){
+					/* Validaciones */
+					//alert(" Ajax log ");
+					//window.location.href="princi.html";
+					window.location.href="princi.html";
+				}
+		});
+	});
 });

@@ -56,6 +56,6 @@ function validarNombre(){
 	if(document.getElementById("nombre").value==""){
 		alert("Introduce el campo nombre!");
 	}else{
-		alert("lleno");
+		//alert("lleno");
 	}
 }
