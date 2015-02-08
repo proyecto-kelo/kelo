@@ -209,11 +209,11 @@ app.post('/anadir', function(req, res) {
   }
 });
 
-function isLogged(){
+/*function isLogged(){
   var esta=false;
   if(){
     
   }
   callback(null, ret);
-}
+}*/
 
