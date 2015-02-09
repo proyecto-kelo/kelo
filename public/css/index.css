@@ -87,7 +87,6 @@ ul, ol {
 /* Los tres recuadros de las provincias: Sus atributos y cuando esta el raton encima que se agrande*/
 #cuadrados{
 	clear:both;
-	min-width: 700px;
 	padding-top: 8%;
 	margin-bottom: -33px;
 	display: -webkit-box;
@@ -209,6 +208,12 @@ ul, ol {
 .tfbutton::-moz-focus-inner {
   border: 0;
 }
+
+#boton_buscar{
+	float:right;
+	margin-top: -55px;
+	margin-right: 15px;
+}
 /***************************************************************************/
 /* Los Viñedos de cada provincia */
 #vinos_navarra{
@@ -287,7 +292,7 @@ ul, ol {
 #vinos_navarra p {
 	padding: 2%;	
 	font-size: 90%;
-	font-family: 'Courgette', cursive;
+	font-family: 'Noto Sans', sans-serif;
 	color: #797070;
 }
 #vinos_rioja article {
@@ -315,7 +320,7 @@ ul, ol {
 #vinos_rioja p {
 	padding: 2%;	
 	font-size: 90%;
-	font-family: 'Courgette', cursive;
+	font-family: 'Noto Sans', sans-serif;
 	color: #797070;
 }
 #vinos_alava article {
@@ -343,7 +348,7 @@ ul, ol {
 #vinos_alava p {
 	padding: 2%;	
 	font-size: 90%;
-	font-family: 'Courgette', cursive;
+	font-family: 'Noto Sans', sans-serif;
 	color: #797070;
 }
 /***************************************************************************/
@@ -403,6 +408,26 @@ a.close {
 a.close:hover {
 	cursor: pointer;
 	background: #00d9ff;
+}
+
+.comprar{
+	cursor: pointer;
+	list-style: none;
+	float:right;
+	margin-top: -90px;
+	margin-right: 40px;
+	width: 100px;
+	height: 50px;
+	border: solid 1px rgba(120,14,62,0.7);
+	background-color: rgba(120,14,62,0.7);
+	border-top-right-radius: 7px 7px;
+	border-bottom-right-radius: 7px 7px;
+	border-top-left-radius: 7px 7px;
+	border-bottom-left-radius: 7px 7px;
+
+}
+.comprar > a > img{
+	margin-left:15px;
 }
 /***************************************************************************/
 /*CONTACTO*/
@@ -527,6 +552,9 @@ textarea:focus {
 	-moz-transition: opacity 400ms ease-in;
 	transition: opacity 400ms ease-in;
 }
+.vinedos > #close:target{
+	opacity: 0;
+}
 /****************************************************/
 /* Slider */
 .imgpeke{
@@ -539,6 +567,14 @@ textarea:focus {
 .imgpeke > img:hover{
 	border: 2.5px solid grey;
 	border-radius: 6px;
+}
+.foto_slider_grande{
+	margin-left: 65px;
+	padding-bottom: 30px;
+}
+.info_contacto{	
+	margin-left: 280px;
+	margin-top: -190px;
 }
 /*******************************************************/
 /* Audio */

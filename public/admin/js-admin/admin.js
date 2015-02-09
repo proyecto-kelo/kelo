@@ -56,7 +56,7 @@ $(document).ready(function(){
 				success: function(data){
 					/* Validaciones */
 					alert("Modificado correctamente!");
-					window.location.href="princi.html";
+					window.location.href="princi";
 				}
 		});
 	});
@@ -71,7 +71,7 @@ $(document).ready(function(){
 				success: function(data){
 					/* Validaciones */
 					alert("Eliminado correctamente");
-					window.location.href="princi.html";
+					window.location.href="princi";
 				}
 		});
 	});
@@ -87,7 +87,7 @@ $(document).ready(function(){
 				success: function(data){
 					/* Validaciones */
 					alert("Añadido correctamente");
-					window.location.href="princi.html";
+					window.location.href="princi";
 				}
 		});
 	});
@@ -104,7 +104,7 @@ $(document).ready(function(){
 					/* Validaciones */
 					//alert(" Ajax log ");
 					//window.location.href="princi.html";
-					window.location.href="princi.html";
+					//window.location.href="princi";
 				}
 		});
 	});

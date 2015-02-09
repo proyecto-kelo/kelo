@@ -3,9 +3,6 @@ var bodyParser = require('body-parser');
 var app = express();
 var cookieParser = require('cookie-parser');
 var http = require('http');
-var exphbs  = require('express-handlebars');
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
@@ -42,6 +39,10 @@ console.log("openshift mysql db OK!");
     });
 }
 
+var exphbs  = require('express-handlebars');
+// app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
 // body-parser for POST
 // https://github.com/expressjs/body-parser
 var bodyParser = require('body-parser');
@@ -59,11 +60,9 @@ app.use(session({ resave: true,
                   secret: 'uwotm8' }));
 
 app.get('/name/:name', function(req, res) {
-
   var name = req.params.name;
   req.session.name = name;
   // req.session.save();
-  
   console.log(req.session.name);
     res.send('Hello ' + name);
 });
@@ -74,8 +73,7 @@ app.get('/', function(req, res) {
 	res.redirect('/index.html');
 });
 app.get('/admin', function(req, res) {
-  console.log("Nombre: "+req.session.name);
-  res.redirect('/admin/log.html');
+  res.redirect("/prueba");
 });
 
 // Seleccion de la base de datos de los viñedos. Navarra, Rioja, Alava y todos.
@@ -126,7 +124,6 @@ app.get('/elegir', function(req,res) {
     res.json(rows);    
   });
 });
-
 app.post('/log', function(req,res) {
   req.session.usuario=req.body;
 	db.query("SELECT name,pass FROM  `usuario`").success(function(rows){
@@ -136,7 +133,8 @@ app.post('/log', function(req,res) {
           console.log("La contraseña y el nombre coinciden");
           req.session.name = req.body.name;
           console.log("Nombre: "+req.session.name);
-          res.redirect("/admin/princi.html");
+          //res.render('princi', {orders: rows});
+          res.redirect('/admin');
       }else{
         console.log("La contraseña no coincide");
       }
@@ -161,7 +159,7 @@ app.post('/modificar', function(req, res) {
     db.query("UPDATE vinedo SET nombre='"+req.body.nombre+"', provincia='"+req.body.provincia+"', direccion='"+req.body.direccion+"', gmail='"+req.body.gmail+"', telefono='"+req.body.telf+"', infor='"+req.body.infor+"', informacion='"+req.body.informacion+"', busqueda='"+req.body.busqueda+"', tinto='"+req.body.tinto+"', blanco='"+req.body.blanco+"', rosado='"+req.body.rosado+"', imagen='"+req.body.imagen+"' WHERE nombre='"+req.body.nombre+"'").success(function(rows){
       res.json(rows);
       console.log("Actualizado correctamente! :D");
-      res.redirect("/admin/princi.html");
+      res.render("princi");
     });
   }
 });
@@ -186,7 +184,7 @@ app.post('/eliminar', function(req, res) {
       }else{
         db.query("DELETE FROM `vinedo` WHERE nombre='"+req.body.nombre+"'").success(function(rows){
           console.log("Eliminado correctamente!");
-          res.redirect("/admin/princi.html");    
+          res.render("princi");    
         });
       }
     });
@@ -202,18 +200,22 @@ app.post('/anadir', function(req, res) {
       }else{
         db.query("INSERT INTO `vinedo` (nombre, provincia, direccion, gmail, telefono, infor, informacion, busqueda, tinto, blanco, rosado, imagen) VALUES ('"+req.body.nombre+"', '"+req.body.provincia+"', '"+req.body.direccion+"', '"+req.body.gmail+"', '"+req.body.telf+"', '"+req.body.infor+"', '"+req.body.informacion+"', '"+req.body.busqueda+"', '"+req.body.tinto+"', '"+req.body.blanco+"', '"+req.body.rosado+"', '"+req.body.imagen+"')").success(function(rows){
           console.log("Añadido correctamente!");
-          res.redirect("/admin/princi.html");
+          res.render("princi");
         });
       }
     });
   }
 });
 
-/*function isLogged(){
+app.get('/prueba', function(req,res) {
   var esta=false;
-  if(){
-    
+  console.log("Sesion: "+req.session.name);
+  if(req.session.name == "admin"){
+    res.render('princi');
+    esta=true;
+  }else{
+    res.redirect('admin/log.html'); 
   }
-  callback(null, ret);
-}*/
+  return esta;
+});
 

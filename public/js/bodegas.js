@@ -20,25 +20,25 @@ $(document).ready(function(){
 				}
 				// Codigo para slider
 				// Imagen de la botella principal
-				var slider = "<section><div><center><div><img id='principal-"+fin+"'";
+				var slider = "<section class='slider_contacto'><div><div><div><img class='foto_slider_grande' id='principal-"+fin+"'";
 				if(element.tinto!=""){
 					//Poner tinto en grande
-					slider+=" src='"+element.tinto+"' height='200' width='200'></div></center></div>";
+					slider+=" src='"+element.tinto+"' height='200' width='200'></div></div>";
 				}else{
 					if(element.rosado!=""){
 						// Poner sorado en grande
-						slider+="src='"+element.rosado+"' height='200' width='200'></div></center></div>";
+						slider+="src='"+element.rosado+"' height='200' width='200'></div></div>";
 					}else{
 						if(element.blanco!=""){
 							// Poner Blanco en grande
-							slider+="src='"+element.blanco+"' height='200' width='200'></div></center></div>";
+							slider+="src='"+element.blanco+"' height='200' width='200'></div></div>";
 						}else{
 							// NO HAY FOTOS!!!
 						}
 					}
 				}
 				// Imagenes pequeñas
-				slider+= "<div class='imgpeke'>";
+				slider+= "<div><div class='info_contacto'><p>Tlf.:"+element.telefono+"</p><p>Email:"+element.gmail+"</p><p>Dirección:"+element.direccion+","+element.provincia+"</p></div></div></div><div class='imgpeke'>";
 				if(element.tinto!=""){
 					slider+="<img id='"+fin+"-tinto' class="+fin+" src='"+element.tinto+"' height='50' width='50' onClick='pasar(this.id)'>";
 				}
@@ -48,11 +48,13 @@ $(document).ready(function(){
 				if(element.blanco!=""){
 					slider+="<img id='"+fin+"-blanco' class="+fin+" src='"+element.blanco+"' height='50' width='50' onClick='pasar(this.id)'>";
 				}
-				slider+= "</div></section>";
+				slider+= "</div>";
+
+				
 				// Introducimos todos los atributos correspondientes del viñedo desde la bd
 				//
 				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></a></article>";	//									
-				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p class='justificado'>"+element.informacion+"</p>"+slider+"</div></div>";
+				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p class='justificado'>"+element.informacion+"</p>"+slider+"</section><div><li class='comprar'><a href='"+element.busqueda+"'><img src='images/cart.png' width='50px' height='50px'></a></li></div></div></div>";
 			});
 			// Cerramos los <div> del principio
 			bodegas += "</div>";
@@ -81,25 +83,25 @@ $(document).ready(function(){
 				}
 				// Codigo para slider
 				// Imagen de la botella principal
-				var slider = "<section><div><center><div><img id='principal-"+fin+"'";
+				var slider = "<section><div><div><div><img class='foto_slider_grande' id='principal-"+fin+"'";
 				if(element.tinto!=""){
 					//Poner tinto en grande
-					slider+=" src='"+element.tinto+"' height='200' width='200'></div></center></div>";
+					slider+=" src='"+element.tinto+"' height='200' width='200'></div></div>";
 				}else{
 					if(element.rosado!=""){
 						// Poner sorado en grande
-						slider+="src='"+element.rosado+"' height='200' width='200'></div></center></div>";
+						slider+="src='"+element.rosado+"' height='200' width='200'></div></div>";
 					}else{
 						if(element.blanco!=""){
 							// Poner Blanco en grande
-							slider+="src='"+element.blanco+"' height='200' width='200'></div></center></div>";
+							slider+="src='"+element.blanco+"' height='200' width='200'></div></div>";
 						}else{
 							// NO HAY FOTOS!!!
 						}
 					}
 				}
 				// Imagenes pequeñas
-				slider+= "<div class='imgpeke'>";
+				slider+= "<div><div class='info_contacto'><p>Tlf.:"+element.telefono+"</p><p>Email:"+element.gmail+"</p><p>Dirección:"+element.direccion+","+element.provincia+"</p></div></div></div><div class='imgpeke'>";
 				if(element.tinto!=""){
 					slider+="<img id='"+fin+"-tinto' class="+fin+" src='"+element.tinto+"' height='50' width='50' onClick='pasar(this.id)'>";
 				}
@@ -109,15 +111,17 @@ $(document).ready(function(){
 				if(element.blanco!=""){
 					slider+="<img id='"+fin+"-blanco' class="+fin+" src='"+element.blanco+"' height='50' width='50' onClick='pasar(this.id)'>";
 				}
-				slider+= "</div></section>";
-				// Creamos una etiqueta de articulo con un hipervinculo al pop-up
+				slider+= "</div>";
+
+				
 				// Introducimos todos los atributos correspondientes del viñedo desde la bd
-				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></a></article>";					
-				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p>"+slider+"</div></div>";
-			});		
+				//
+				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></a></article>";	//									
+				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p class='justificado'>"+element.informacion+"</p>"+slider+"</section><div><li class='comprar'><a href='"+element.busqueda+"'><img src='images/cart.png' width='50px' height='50px'></a></li></div></div></div>";
+			});
 			// Cerramos los <div> del principio
 			bodegas += "</div>";
-			// Introducimos la variable bodegas en nuestro div #vinos_rioja
+			// Introducimos la variable bodegas en nuestro div #vinos_navarra
 			$("#vinos_rioja").append(bodegas);	 
 			}
 	});
@@ -141,25 +145,25 @@ $(document).ready(function(){
 				}
 				// Codigo para slider
 				// Imagen de la botella principal
-				var slider = "<section><div><center><div><img id='principal-"+fin+"'";
+				var slider = "<section><div><div><div><img class='foto_slider_grande' id='principal-"+fin+"'";
 				if(element.tinto!=""){
 					//Poner tinto en grande
-					slider+=" src='"+element.tinto+"' height='200' width='200'></div></center></div>";
+					slider+=" src='"+element.tinto+"' height='200' width='200'></div></div>";
 				}else{
 					if(element.rosado!=""){
 						// Poner sorado en grande
-						slider+="src='"+element.rosado+"' height='200' width='200'></div></center></div>";
+						slider+="src='"+element.rosado+"' height='200' width='200'></div></div>";
 					}else{
 						if(element.blanco!=""){
 							// Poner Blanco en grande
-							slider+="src='"+element.blanco+"' height='200' width='200'></div></center></div>";
+							slider+="src='"+element.blanco+"' height='200' width='200'></div></div>";
 						}else{
 							// NO HAY FOTOS!!!
 						}
 					}
 				}
 				// Imagenes pequeñas
-				slider+= "<div class='imgpeke'>";
+				slider+= "<div><div class='info_contacto'><p>Tlf.:"+element.telefono+"</p><p>Email:"+element.gmail+"</p><p>Dirección:"+element.direccion+","+element.provincia+"</p></div></div></div><div class='imgpeke'>";
 				if(element.tinto!=""){
 					slider+="<img id='"+fin+"-tinto' class="+fin+" src='"+element.tinto+"' height='50' width='50' onClick='pasar(this.id)'>";
 				}
@@ -169,17 +173,19 @@ $(document).ready(function(){
 				if(element.blanco!=""){
 					slider+="<img id='"+fin+"-blanco' class="+fin+" src='"+element.blanco+"' height='50' width='50' onClick='pasar(this.id)'>";
 				}
-				slider+= "</div></section>";
-				// Creamos una etiqueta de articulo con un hipervinculo al pop-up
+				slider+= "</div>";
+
+				
 				// Introducimos todos los atributos correspondientes del viñedo desde la bd
-				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></a></article>";					
-				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p>"+element.informacion+"</p>"+slider+"</div></div>";
-			});		
+				//
+				bodegas += "<article><a href='#"+fin+"'><img src='"+element.imagen+"'></img><p>"+element.infor+"</p></a></article>";	//									
+				bodegas += "<div id='"+fin+"' class='modalDialog'><div><a href='#close' title='Close' class='close'>X</a><h2>"+element.nombre+"</h2><p class='justificado'>"+element.informacion+"</p>"+slider+"</section><div><li class='comprar'><a href='"+element.busqueda+"'><img src='images/cart.png' width='50px' height='50px'></a></li></div></div></div>";
+			});
 			// Cerramos los <div> del principio
 			bodegas += "</div>";
-			// Introducimos la variable bodegas en nuestro div #vinos_alava
+			// Introducimos la variable bodegas en nuestro div #vinos_navarra
 			$("#vinos_alava").append(bodegas);	 
-			}	 	 
+			}
 	});
 	/*Prueba, no se sabe si esta bien o mal*/
 	$.ajax({	

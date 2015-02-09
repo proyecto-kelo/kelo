@@ -13,19 +13,34 @@ html{
 	margin-top: -50px;
 }
 #tfnewsearch{
-	margin-top: -40px
+	margin-top: 20px;
 }
+
+/*Jon cambio*/
+#tfnewsearch > div{
+	height: 40px;
+}
+
+#tfnewsearch > #boton_buscar{
+	margin-right: 80px;
+	height: 50px;
+}
+/**/
+
+
 .vinedos > div > div {
 	width: 370px;
+	height: 450px;
 
 }
 .vinedos >  div {
 	font-size: 12px;
-margin-top: -10px;
+	margin-top: -10px;
+
 }
 	#fondo{
 		background: none;
-		height: 400px;
+		height: 350px;
 		
 		margin-right: 10px;
 		margin-left: 50px;
@@ -48,25 +63,26 @@ margin-top: -10px;
 	#cuadrados{
 
 		display: block;
+		min-width: 0px;
 		
 
 	}
 	#box1{
 		width: 350px;
 		margin-bottom: 120px;
-		margin-left: 110px;
+		margin-left: 60px;
 	}
 
 	#box2{
 		width: 350px;
 		margin-bottom: 120px;
-		margin-left: 110px;
+		margin-left: 60px;
 	}
 
 	#box3{
 		width: 350px;
 		margin-bottom: 120px;
-		margin-left: 110px;
+		margin-left: 60px;
 	}
 
 	#tit{
@@ -80,14 +96,49 @@ margin-top: -10px;
 	}
 	.tftextinput{
 		font-size: 20px;
+		height: 42px;
 	}
 	#vinos_navarra{
 		margin-top:120%;
+		font-size: 12px;
 	}
 	#vinos_rioja{
 		margin-top:120%;
+		font-size: 12px;
 	}
 	#vinos_alava{
 		margin-top:120%;
+		font-size: 12px;
 	}
 
+	/*Jon cambio*/
+
+	.foto_slider_grande{
+		width: 130px;
+		height: 130px;
+		margin-left: 10px;
+		margin-bottom: 20px;
+	}
+
+	.comprar {
+		margin-top: 5px;
+		float:left;
+		margin-left: 120px;
+	}
+
+	.info_contacto{
+		clear:both;
+		float:left;
+		margin-left: 140px;		
+		margin-top: -160px;
+		margin-bottom: -150px;
+	}
+
+	.slider_contacto{
+		height: 240px;
+	}
+
+	.imgpeke{
+		margin-top: -30px;
+		margin-bottom: -10px;
+	}
