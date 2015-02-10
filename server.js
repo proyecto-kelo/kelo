@@ -39,10 +39,7 @@ console.log("openshift mysql db OK!");
     });
 }
 
-var exphbs  = require('express-handlebars');
-// app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
+
 // body-parser for POST
 // https://github.com/expressjs/body-parser
 var bodyParser = require('body-parser');
@@ -59,21 +56,12 @@ app.use(session({ resave: true,
                   saveUninitialized: true,
                   secret: 'uwotm8' }));
 
-app.get('/name/:name', function(req, res) {
-  var name = req.params.name;
-  req.session.name = name;
-  // req.session.save();
-  console.log(req.session.name);
-    res.send('Hello ' + name);
-});
+
 
 /** ROUTES **/
 /* Redireccionar a pagina principal */
 app.get('/', function(req, res) {
 	res.redirect('/index.html');
-});
-app.get('/admin', function(req, res) {
-  res.redirect("/prueba");
 });
 
 // Seleccion de la base de datos de los viñedos. Navarra, Rioja, Alava y todos.
@@ -124,27 +112,7 @@ app.get('/elegir', function(req,res) {
     res.json(rows);    
   });
 });
-app.post('/log', function(req,res) {
-  req.session.usuario=req.body;
-	db.query("SELECT name,pass FROM  `usuario`").success(function(rows){
-    if(req.body.name==rows[0].name){
-      // Nombres coinciden
-      if(req.body.password==rows[0].pass){
-          console.log("La contraseña y el nombre coinciden");
-          req.session.name = req.body.name;
-          console.log("Nombre: "+req.session.name);
-          //res.render('princi', {orders: rows});
-          res.redirect('/admin');
-      }else{
-        console.log("La contraseña no coincide");
-      }
-    }else{
-      console.log("El nombre no coincide");
-    }
-	// no errors
-	  res.json(rows);
-	});
-});
+
 app.get('/cerrarSesion', function(req, res){
   req.session.name = null;
   res.redirect("/");
@@ -206,16 +174,61 @@ app.post('/anadir', function(req, res) {
     });
   }
 });
+/***************************************************************************/
+/* Handlebars */
+var exphbs  = require('express-handlebars');
+// app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
 
-app.get('/prueba', function(req,res) {
+app.get('/name/:name', function(req, res) {
+  var name = req.params.name;
+  req.session.name = name;
+  // req.session.save();
+  console.log(req.session.name);
+    res.send('Hello ' + name);
+});
+
+app.get('/admin', function(req, res) {
+  res.redirect("/admin/log.html");
+});
+app.post('/log', function(req,res) {
+  db.query("SELECT name,pass FROM  `usuario`").success(function(rows){
+  if(req.body.name==rows[0].name){
+    // Nombres coinciden
+    if(req.body.password==rows[0].pass){
+      console.log("La contraseña y el nombre coinciden");
+      req.session.name = req.body.name;
+      console.log("Nombre: "+req.session.name);
+      //res.render('princi', {orders: rows});
+      res.render('princi');
+      // res.send("kaixo");
+    }else{
+      console.log("La contraseña no coincide");
+    }
+  }else{
+    console.log("El nombre no coincide");
+  }
+  // no errors
+    // res.json(rows);
+  });
+});
+app.post('/autolog', function(req,res) {
+  var esta = validarSesion(req);
+  console.log("Sesion auto: "+esta);
+  if(esta){
+    res.render("princi");
+  }
+});
+function validarSesion(req){
   var esta=false;
   console.log("Sesion: "+req.session.name);
+  var kk=req.session.name;
+  console.log("Sesion en var: "+kk);
   if(req.session.name == "admin"){
-    res.render('princi');
+    console.log("Entra!");
     esta=true;
-  }else{
-    res.redirect('admin/log.html'); 
   }
   return esta;
-});
+};
 

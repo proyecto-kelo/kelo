@@ -1,12 +1,12 @@
 function redireccion(id){
 	if(id=="box1"){
-		window.location.href="anadir";
+		$("body").html(anadir);
 	}
 	if(id=="box2"){
-		window.location.href="eliminar";
+		$("body").html(eliminar);
 	}
 	if(id=="box3"){
-		window.location.href="elegir";
+		$("body").html(elegir);
 	}
 }
 // Funcion para mostrar el formulario del viñedo que se va a modificar

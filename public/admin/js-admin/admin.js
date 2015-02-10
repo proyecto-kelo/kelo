@@ -101,11 +101,19 @@ $(document).ready(function(){
 				dataType: "html",
 				data: formData,
 				success: function(data){
-					/* Validaciones */
-					//alert(" Ajax log ");
-					//window.location.href="princi.html";
-					//window.location.href="princi";
+					$( "body" ).html(data);
 				}
 		});
 	});
+	/*event.preventDefault();
+    var formData = $(this).serializeArray();
+	$.ajax({	
+			type: "POST",
+			url: "/autolog",
+			dataType: "html",
+			data: formData,
+			success: function(data){
+				$( "body" ).html(data);
+			}
+	});*/
 });
