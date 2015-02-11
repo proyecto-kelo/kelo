@@ -56,5 +56,5 @@ app.use(session({ resave: true,
                   saveUninitialized: true,
                   secret: 'uwotm8' }));
 
-
-require('./routes')(app);
+require('./app/api')(app);
+require('./app/routes')(app);
