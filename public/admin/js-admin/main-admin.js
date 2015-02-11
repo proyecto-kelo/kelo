@@ -1,3 +1,5 @@
+// Añade al html el codigo que se precisa (gestión):
+// añadir, eliminar y modificar
 function redireccion(id){
 	if(id=="box1"){
 		$("body").html(anadir);
@@ -15,6 +17,11 @@ function mostrarform(){
     $('.bodegasform').css( "display", "none");
     $('#'+nombre).css( "display", "block");
 }
+// Validar campos del formulario
+// 1- No estar todos los campos vacios
+// 2- Provincias solo Alava,Rioja, Navarra
+// 3- Validar e-mail
+// 4- Validar telefono
 function validarCampos(){
 	if(document.getElementById("nombre")==null){
 		alert("Introduce el campo nombre!");
