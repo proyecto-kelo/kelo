@@ -1,5 +1,4 @@
-
-// Funcion para mostrar el pop-up del viñedo seleccionado
+// Funciones para mostrar y ocultar el pop-up del viñedo seleccionado
 function mostrar(nombre){
     $('.bodegas').css({opacity:0});
     $('#'+nombre).css({opacity:1});

@@ -1,4 +1,7 @@
 $(document).ready(function(){
+	/****************************************************************************************************************/
+	/* GET para crear los elementos necesarios de cada viñedo */
+	// Navarra, Alava y La Rioja
 	$.ajax({	
 			type: "GET",
 			url: "/navarra",
@@ -187,17 +190,18 @@ $(document).ready(function(){
 			$("#vinos_alava").append(bodegas);	 
 			}
 	});
-	/*Prueba, no se sabe si esta bien o mal*/
+	/****************************************************************************************************************/
+	/* Buscador */
 	$.ajax({	
 			type: "GET",
 			url: "/buscar",
 			dataType: "json",
 			success: function(data){
-
+				// Al hacer click en el boton de buscar...
 			$(".tfbutton").click(function(){
+				// Coger el nombre del campo y hace visible el pop up
 				var busqueda = document.getElementsByName('q')[0].value;
 				var provincia = "#vinos_";
-				//alert("Se ha seleccionado: "+busqueda);
 				var str = busqueda;
 				var peq = str.toLowerCase();
 				var res = peq.split(" ");
@@ -205,10 +209,8 @@ $(document).ready(function(){
 				for (var i=0; i<res.length; i++){
 					fin+= res[i];
 				}
-				//alert("Despues: "+fin);
 				for (var i=0; i<data.length; i++){
 					var nombre = data[i].nombre;
-					//alert(nombre);
 					var str1 = nombre;
 					var peq1 = str1.toLowerCase();
 					var res1 = peq1.split(" ");
@@ -216,30 +218,20 @@ $(document).ready(function(){
 					for (var j=0; j<res1.length; j++){
 						nombre+= res1[j];
 					}
-					//alert("Hey! "+nombre);
 					if(fin==nombre){
-						//alert("hola");
 						provincia = provincia + data[i].provincia;
 						provincia = provincia.toLowerCase();
-						//alert("la provincia es: "+provincia);
-						$(provincia).css("display","block");
-						//alert(nombre);
-						
+						$(provincia).css("display","block");						
 						fin="#"+fin;
 						$(fin).css({opacity:1});
-						//window.location="http://localhost:8080/"+fin;
-						/*var url = "http://localhost:8080/"+fin;
-						$(location).attr('href',url);*/
-						//alert(fin);
 						break;
-
-						//alert("Se ha comparado"+nombre);
 					}
 				}
 			});			 
 			}	 	 
 	});
 	// Enseñar viñedos de cada provincia segun donde se haga click
+	/* Efectos de jquery */
 	$("#box1").click(function(){
 		$("#vinos_rioja").hide();
 		$("#vinos_alava").hide();

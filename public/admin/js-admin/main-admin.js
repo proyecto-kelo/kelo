@@ -79,16 +79,18 @@ function validarCampos(){
 		}
 	}
 }
+/* Funcion de validar nombre */
 function validarNombre(){
 	if(document.getElementById("nombre").value==""){
 		alert("Introduce el campo nombre!");
 	}else{
-		//alert("lleno");
+		
 	}
 }
+/* Funcion de validar e-mail */
+// regrex
 function validarEmail(mail){  
 	if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)){
-		// E-mail correcto
 		return true;
 	}else{ 
     	alert("E-mail incorrecto!");

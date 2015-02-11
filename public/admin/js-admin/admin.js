@@ -1,17 +1,13 @@
 $(document).ready(function(){
 	$( "#formbuscar" ).submit(function( event ) {
-        //console.log("submit");
         event.preventDefault();
-        //alert("por favor");
         var formData = $(this).serializeArray();
 		$.ajax({	
 				type: "POST",
 				url: "/buscar",
 				dataType: "json",
-				//dataType: "html",
 				data: formData,
 				success: function(data){
-					//alert("KK");
 
 					//rellenar la informacion para modificarlo
 					$('#nombre').val(data[0].nombre);
@@ -45,6 +41,7 @@ $(document).ready(function(){
 				}
 		});
 	});
+	/* Accion de Ajax al modificar un viñedo */
 	$( "#formmodificar" ).submit(function( event ) {
         event.preventDefault();
         var formData = $(this).serializeArray();
@@ -54,12 +51,12 @@ $(document).ready(function(){
 				dataType: "html",
 				data: formData,
 				success: function(data){
-					/* Validaciones */
 					alert("Modificado correctamente!");
 					window.location.href="log";
 				}
 		});
 	});
+	/* Accion de Ajax al eliminar un viñedo */
 	$( "#formeliminar" ).submit(function( event ) {
         event.preventDefault();
         var formData = $(this).serializeArray();
@@ -69,35 +66,33 @@ $(document).ready(function(){
 				dataType: "html",
 				data: formData,
 				success: function(data){
-					/* Validaciones */
 					alert("Eliminado correctamente");
 					window.location.href="log";
 				}
 		});
 	});
+	/* Accion de Ajax al añadir un viñedo */
 	$( "#formanadir" ).submit(function( event ) {
         event.preventDefault();
         var formData = $(this).serializeArray();
 		$.ajax({	
 				type: "POST",
 				url: "/anadir",
-				//dataType: "json",
 				dataType: "html",
 				data: formData,
 				success: function(data){
-					/* Validaciones */
 					alert("Añadido correctamente");
 					window.location.href="log";
 				}
 		});
 	});
+	/* Accion de Ajax al loggearte */
 	$( "#formlog" ).submit(function( event ) {
         event.preventDefault();
         var formData = $(this).serializeArray();
 		$.ajax({	
 				type: "POST",
 				url: "/log",
-				//dataType: "json",
 				dataType: "html",
 				data: formData,
 				success: function(data){
@@ -105,15 +100,4 @@ $(document).ready(function(){
 				}
 		});
 	});
-	/*event.preventDefault();
-    var formData = $(this).serializeArray();
-	$.ajax({	
-			type: "POST",
-			url: "/autolog",
-			dataType: "html",
-			data: formData,
-			success: function(data){
-				$( "body" ).html(data);
-			}
-	});*/
 });
