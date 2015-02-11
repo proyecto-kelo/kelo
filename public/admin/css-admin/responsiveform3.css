@@ -6,6 +6,9 @@ font-size:12px;
 input[type=text]{
 padding: 8px;
 }
+input[type=password]{
+padding: 8px;
+}
 label{
 font-size:12px;
 }

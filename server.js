@@ -116,9 +116,10 @@ app.get('/elegir', function(req,res) {
 app.get('/cerrarSesion', function(req, res){
   req.session.name = null;
   res.redirect("/");
-
 });
-
+app.get('/princi', function(req, res){
+  res.render("princi");
+});
 app.post('/modificar', function(req, res) {
   if((req.body.nombre==undefined) || (req.body.provincia==undefined) || (req.body.direccion==undefined) || (req.body.gmail==undefined) || (req.body.telf==undefined) || (req.body.infor==undefined) || (req.body.informacion==undefined) || (req.body.busqueda==undefined) || (req.body.imagen==undefined)){
     console.log(req.body.nombre);

@@ -29,7 +29,7 @@ function validarCampos(){
 		if(document.getElementById("provincia")==null){
 			alert("Introduce el campo provincia!");
 		}else{
-			if(document.getElementById("provincia").value!=("Alava"||"Rioja"||"Navarra")){
+			if(document.getElementById("provincia").value==(("Alava")||("La Rioja")||("Navarra"))){
 				alert("Las provincias solo pueden ser : Alava, Rioja y Navarra)");
 			}else{
 				if(document.getElementById("direccion")==null){
