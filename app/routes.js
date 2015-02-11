@@ -1,43 +1,47 @@
 module.exports = function(app) {
-/** ROUTES **/
-/* Redireccionar a pagina principal */
+/* Redirecciones */
 app.get('/', function(req, res) {
 	res.redirect('/index.html');
 });
+app.get('/admin', function(req, res) {
+  res.redirect("/admin/log.html");
+});
+// Seleccionar todos los viñedos de Navarra para enviarselos en un json al Ajax correspondiente
 app.get('/navarra', function(req, res) {
   db.query("SELECT * FROM  `vinedo` WHERE provincia =  'Navarra'").success(function(rows){
-  // no errors
     res.json(rows);
   });
 });
+// Seleccionar todos los viñedos de La Rioja para enviarselos en un json al Ajax correspondiente
 app.get('/rioja', function(req, res) {
 	db.query("SELECT * FROM  `vinedo` WHERE provincia =  'La Rioja'").success(function(rows){
-	// no errors
 	  res.json(rows);
 	});
 });
+// Seleccionar todos los viñedos de Alava para enviarselos en un json al Ajax correspondiente
 app.get('/alava', function(req, res) {
 	db.query("SELECT * FROM  `vinedo` WHERE provincia =  'Alava'").success(function(rows){
-	// no errors
 	  res.json(rows);
 	});
 });
+// Seleccionar todos los viñedos para enviarselos en un json al Ajax correspondiente (Buscador)
 app.get('/buscar', function(req,res) {
 	db.query("SELECT * FROM  `vinedo`").success(function(rows){
-	// no errors
 	  res.json(rows);
 	});
 });
+// Seleccion de todos los viñedos para enviarselos en un json al Ajax correspondiente (Elegir-Admin)
 app.get('/elegir', function(req,res) {
   db.query("SELECT * FROM  `vinedo`").success(function(rows){
     res.json(rows);    
   });
 });
-
-app.get('/cerrarSesion', function(req, res){
-  req.session.name = null;
-  res.redirect("/");
-});
+/* Modificar los campos del viñedo en cuestion */
+// Se validan:
+// Que los campos no esten vacios
+// Que las provincias solo sean: Alava, La Rioja y Navarra.
+// Que el email sea correcto
+// Que se introduzca un telefono de 9 numeros (real).
 app.post('/modificar', function(req, res) {
   if((req.body.nombre==undefined) || (req.body.provincia==undefined) || (req.body.direccion==undefined) || (req.body.gmail==undefined) || (req.body.telf==undefined) || (req.body.infor==undefined) || (req.body.informacion==undefined) || (req.body.busqueda==undefined) || (req.body.imagen==undefined)){
     console.log(req.body.nombre);
@@ -71,6 +75,8 @@ app.post('/modificar', function(req, res) {
     }
   }
 });
+/* Buscar el viñedo en la bd */
+// En caso de que exista, devolver todos sus valores en un json
 app.post('/buscar', function(req, res) {
   db.query("SELECT COUNT(nombre) FROM `vinedo` WHERE nombre='"+req.body.nom+"'").success(function(rows){
     if(rows==0){
@@ -82,6 +88,9 @@ app.post('/buscar', function(req, res) {
     }
   });
 });
+/* Eliminar Viñedo */
+// Eliminar viñedo de la bd
+// Validar que se haya escrito algo y que exista
 app.post('/eliminar', function(req, res) {
   if(req.body.nombre==""){
     console.log("Escribe algo!");
@@ -98,6 +107,12 @@ app.post('/eliminar', function(req, res) {
     });
   }
 });
+/* Añadir un viñedo */
+// Se validan:
+// Que los campos no esten vacios
+// Que las provincias solo sean: Alava, La Rioja y Navarra.
+// Que el email sea correcto
+// Que se introduzca un telefono de 9 numeros (real).
 app.post('/anadir', function(req, res) {
   if((req.body.nombre=="") || (req.body.direccion=="") || (req.body.infor=="") || (req.body.informacion=="") || (req.body.busqueda=="") || (req.body.imagen=="")){
     console.log("Algun campo vacio!");
@@ -136,23 +151,9 @@ app.post('/anadir', function(req, res) {
     }
   }
 });
-/***************************************************************************/
-/* Handlebars */
-var exphbs  = require('express-handlebars');
-// app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
-
-app.get('/name/:name', function(req, res) {
-  var name = req.params.name;
-  req.session.name = name;
-  // req.session.save();
-  console.log(req.session.name);
-    res.send('Hello ' + name);
-});
-app.get('/admin', function(req, res) {
-  res.redirect("/admin/log.html");
-});
+/* Log */
+// Validar que el usuario introducido y que el de la bd sean iguales
+// Si son iguales redireccionar a la administracion, sino no
 app.post('/log', function(req,res) {
   db.query("SELECT name,pass FROM  `usuario`").success(function(rows){
   if(req.body.name==rows[0].name){
@@ -161,40 +162,43 @@ app.post('/log', function(req,res) {
       console.log("La contraseña y el nombre coinciden");
       req.session.name = req.body.name;
       console.log("Nombre: "+req.session.name);
-      //res.render('princi', {orders: rows});
       res.render('princi');
-      // res.send("kaixo");
     }else{
       console.log("La contraseña no coincide");
     }
   }else{
     console.log("El nombre no coincide");
   }
-  // no errors
-    // res.json(rows);
   });
 });
+/* Comprobar si la sesion esta abierta */
+// Si la sesion esta abierta se redirecciona a la pagina principal de administracion
+// Sino a logeartede nuevo
 app.get('/log', function(req,res) {
   var esta = validarSesion(req);
-  console.log("Sesion auto: "+esta);
   if(esta){
     res.render("princi");
   }else{
     res.redirect("/admin/log.html");
   }
 });
+/* Cerrar la sesion abierta */
+app.get('/cerrarSesion', function(req, res){
+  req.session.name = null;
+  res.redirect("/");
+});
 
+/* Funciones para¡ validar campos */
+// Sesion existente
 function validarSesion(req){
   var esta=false;
-  console.log("Sesion: "+req.session.name);
   var kk=req.session.name;
-  console.log("Sesion en var: "+kk);
   if(req.session.name == "admin"){
-    console.log("Entra!");
     esta=true;
   }
   return esta;
 };
+// Validacion e-mail
 function validarEmail(mail){  
   if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)){
     // E-mail correcto
