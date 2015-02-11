@@ -23,38 +23,48 @@ function mostrarform(){
 // 3- Validar e-mail
 // 4- Validar telefono
 function validarCampos(){
-	if(document.getElementById("nombre")==null){
+	var princi=0;
+	if(document.getElementById("nombre").value==""){
 		alert("Introduce el campo nombre!");
 	}else{
-		if(document.getElementById("provincia")==null){
+		if(document.getElementById("provincia").value==""){
 			alert("Introduce el campo provincia!");
 		}else{
-			if(document.getElementById("provincia").value==(("Alava")||("La Rioja")||("Navarra"))){
-				alert("Las provincias solo pueden ser : Alava, Rioja y Navarra)");
+			if(document.getElementById("provincia").value==("Alava")){
+				princi++;
+			}
+			if(document.getElementById("provincia").value==("La Rioja")){
+				princi++;
+			}
+			if(document.getElementById("provincia").value==("Navarra")){
+				princi++;
+			}
+			if(princi!=1){
+				alert("Las provincias solo pueden ser : Alava, La Rioja y Navarra");
 			}else{
-				if(document.getElementById("direccion")==null){
+				if(document.getElementById("direccion").value==""){
 					alert("Introduce el campo direccion!");
 				}else{
-					if(document.getElementById("gmail")==null){
+					if(document.getElementById("gmail").value==""){
 						alert("Introduce el campo email!");
 					}else{
 						if(validarEmail(document.getElementById("gmail").value)==true){
-							if(document.getElementById("telf")==null){
+							if(document.getElementById("telf").value==""){
 								alert("Introduce el campo telefono!");
 							}else{
 								if( !(/^\d{9}$/.test(document.getElementById("telf").value)) ) {
   									alert("Introduce un telefono real!");
 								}else{
-									if(document.getElementById("infor")==null){
+									if(document.getElementById("infor").value==""){
 									alert("Introduce el campo informacion corta!");
 									}else{
-										if(document.getElementById("informacion")=null){
+										if(document.getElementById("informacion").value==""){
 											alert("Introduce el campo informacion larga!");
 										}else{
-											if(document.getElementById("busqueda")=null){
+											if(document.getElementById("busqueda").value==""){
 												alert("Introduce el campo busqueda!");
 											}else{
-												if(document.getElementById("imagen")=null){
+												if(document.getElementById("imagen").value==""){
 													alert("Introduce el campo imagen!");
 												}
 											}

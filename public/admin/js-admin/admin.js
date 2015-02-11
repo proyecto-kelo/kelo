@@ -56,7 +56,7 @@ $(document).ready(function(){
 				success: function(data){
 					/* Validaciones */
 					alert("Modificado correctamente!");
-					window.location.href="princi";
+					window.location.href="log";
 				}
 		});
 	});
@@ -71,7 +71,7 @@ $(document).ready(function(){
 				success: function(data){
 					/* Validaciones */
 					alert("Eliminado correctamente");
-					window.location.href="princi";
+					window.location.href="log";
 				}
 		});
 	});
@@ -87,7 +87,7 @@ $(document).ready(function(){
 				success: function(data){
 					/* Validaciones */
 					alert("Añadido correctamente");
-					window.location.href="princi";
+					window.location.href="log";
 				}
 		});
 	});
