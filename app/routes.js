@@ -176,12 +176,9 @@ app.post('/log', function(req,res) {
 // Sino a logeartede nuevo
 app.get('/log', function(req,res) {
   var esta = validarSesion(req);
-  console.log("Sesion valida? "+esta);
   if(esta){
-    console.log("dentro");
     res.render("princi");
   }else{
-    console.log("fuera");
     res.redirect("/admin/log.html");
   }
 });
@@ -196,10 +193,8 @@ app.get('/cerrarSesion', function(req, res){
 function validarSesion(req){
   var esta=false;
   var kk=req.session.name;
-  console.log("Sesion antes: "+kk);
   if(req.session.name == "admin"){
     esta=true;
-    console.log("Entra");
   }
   return esta;
 };
@@ -212,4 +207,24 @@ function validarEmail(mail){
       return false;
   }
 }
-}  
+app.post('/tiempo', function (req, res) {
+  // Donostia. Zubiri-Manteo
+  var lat  = 42.295872;
+  var longi = -1.8187178;
+  var url = 'http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+longi+'';
+
+  var request = require('request');
+  request({url:url, json:"true"}, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      console.log(body);
+      res.json(body);
+    } else {
+      res.json({error:"request error"});
+    }
+  });
+});
+
+
+}
+
+
