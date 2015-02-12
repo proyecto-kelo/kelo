@@ -4,7 +4,7 @@ app.get('/', function(req, res) {
 	res.redirect('/index.html');
 });
 app.get('/admin', function(req, res) {
-  res.redirect("/admin/log.html");
+  res.redirect("/log");
 });
 // Seleccionar todos los viñedos de Navarra para enviarselos en un json al Ajax correspondiente
 app.get('/navarra', function(req, res) {
@@ -176,9 +176,12 @@ app.post('/log', function(req,res) {
 // Sino a logeartede nuevo
 app.get('/log', function(req,res) {
   var esta = validarSesion(req);
+  console.log("Sesion valida? "+esta);
   if(esta){
+    console.log("dentro");
     res.render("princi");
   }else{
+    console.log("fuera");
     res.redirect("/admin/log.html");
   }
 });
@@ -193,8 +196,10 @@ app.get('/cerrarSesion', function(req, res){
 function validarSesion(req){
   var esta=false;
   var kk=req.session.name;
+  console.log("Sesion antes: "+kk);
   if(req.session.name == "admin"){
     esta=true;
+    console.log("Entra");
   }
   return esta;
 };
