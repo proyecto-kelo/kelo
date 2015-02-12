@@ -1,3 +1,4 @@
+// Sacar el nombre del pueblo, tiempo y la temperatura (en Kelvin) en el cuerpo del hmtl
 $(document).ready(function(){
 	event.preventDefault();
 	var formData = $(this).serializeArray();

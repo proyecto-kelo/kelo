@@ -207,12 +207,14 @@ function validarEmail(mail){
       return false;
   }
 }
+
+/* Usar la API de OpenWeatherMap */ 
 app.post('/tiempo', function (req, res) {
   // Donostia. Zubiri-Manteo
   var lat  = 42.295872;
   var longi = -1.8187178;
   var url = 'http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+longi+'';
-
+  /* Devuelve un json con varios datos del tiempo */
   var request = require('request');
   request({url:url, json:"true"}, function (error, response, body) {
     if (!error && response.statusCode == 200) {

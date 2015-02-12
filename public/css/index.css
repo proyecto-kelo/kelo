@@ -1,7 +1,7 @@
 body{
-	/*background-image: url(../images/fondo.jpg);*/
 	height: 100%;
 }
+/* Parrafos justificados */
 p.justificado{
 	text-align: justify;
     text-justify: inter-word;
@@ -13,26 +13,24 @@ a {
 a:link {
     color: #000000;
 }
-
-/* Link visitado */
+/* Link visitado 
 a:visited {
     color: #000000;
 }
-
-/* Raton encima del link */
+/* Raton encima del link 
 a:hover {
     color: #000000;
 }
-
-/* Link Seleccionado */
+/* Link Seleccionado 
 a:active {
     color: #000000;
-}
+}*/
+/* Logo, buscador y nemu */
 #header{
 	width: 40%;
 	float: right;
 }
-/* Fondo de la imagen de arriba */
+/* La imagen de Fondo */
 #fondo{
 	margin-top: -10px;
 	margin-right: -10px;
@@ -42,6 +40,7 @@ a:active {
 	background: url(../images/fondo3.jpg) no-repeat;
 	background-size: 100% 100%;
 }
+/* Imagen del Logo */
 #logo>a>img{
 	/*background-image: url("../images/kelologo.png" ) ;*/
 	height: 70%;
@@ -221,10 +220,6 @@ ul, ol {
 	margin: 20px;
 	padding: 20px;
 }
-/*#vinos_navarra > div{
-	width: 100px;
-	height: 80px;
-}*/
 #vinos_navarra > div > img{
 	width: 100px;
 	height: 80px;
@@ -234,10 +229,6 @@ ul, ol {
 	margin: 20px;
 	padding: 20px;
 }
-/*#vinos_rioja > div{
-	width: 100px;
-	height: 80px;
-}*/
 #vinos_rioja > div > img{
 	width: 100px;
 	height: 80px;
@@ -247,10 +238,6 @@ ul, ol {
 	margin: 20px;
 	padding: 20px;
 }
-/*#vinos_alava > div{
-	width: 100px;
-	height: 80px;
-}*/
 /* Borrable?¿ */
 #vinos_alava > div > img{
 	width: 100px;
@@ -310,13 +297,11 @@ ul, ol {
 	max-height: 160px;
 	min-height: 100px;
 }
-
 #vinos_rioja h3 {
 	margin: 5% 0 3% 0; 	
 	font-family: 'Lora', serif;
 	color: #303030;
 }
-
 #vinos_rioja p {
 	padding: 2%;	
 	font-size: 90%;
@@ -332,19 +317,16 @@ ul, ol {
 	box-shadow: 1px 1px 6px 0px rgba(50, 50, 50, 0.75);
 	overflow: hidden;
 }
-
 #vinos_alava article img {
 	width: 100%;
 	max-height: 160px;
 	min-height: 100px;
 }
-
 #vinos_alava h3 {
 	margin: 5% 0 3% 0; 	
 	font-family: 'Lora', serif;
 	color: #303030;
 }
-
 #vinos_alava p {
 	padding: 2%;	
 	font-size: 90%;
@@ -591,6 +573,7 @@ audio{
 	width:100%;
 }
 /*********************************************************/
+/* flecha hacia abajo */
 div#otro{
 	width: 102%;
 	height: 10%;

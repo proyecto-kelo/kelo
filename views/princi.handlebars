@@ -15,22 +15,19 @@
 	<title>Kelo - Inicio</title>
 	<body>
 		<center><h1>Administracion Viñedos</h1></center>
-		<section id="cuadrados">		
+		<section id="cuadrados"><!-- Tres div para poder administrar (redireccionar)-->		
 			<div id="box1" onclick="redireccion(this.id)">
 				<p id="tit">AÑADIR</p>
-				
 			</div>
 			<div id="box2" onclick="redireccion(this.id)">
 				<p id="tit">ELIMINAR</p>
-				
 			</div>	
 			<div id="box3" onclick="redireccion(this.id)">
 				<p id="tit">MODIFICAR</p>
-				
 			</div>			
 		</section>
 		<div>
-			<form method="get" action="/cerrarSesion">
+			<form method="get" action="/cerrarSesion"><!-- Cerrar la sesion -->
         		<input type="submit" value="Salir" style="position:fixed;"/>
         	</form>
     	</div>
