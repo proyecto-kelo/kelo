@@ -13,18 +13,18 @@ a {
 a:link {
     color: #000000;
 }
-/* Link visitado 
+/* Link visitado */ 
 a:visited {
     color: #000000;
 }
-/* Raton encima del link 
+/* Raton encima del link */
 a:hover {
     color: #000000;
 }
-/* Link Seleccionado 
+/* Link Seleccionado */
 a:active {
     color: #000000;
-}*/
+}
 /* Logo, buscador y nemu */
 #header{
 	width: 40%;

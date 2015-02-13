@@ -3,7 +3,7 @@ $(document).ready(function(){
 	event.preventDefault();
 	var formData = $(this).serializeArray();
 	$.ajax({	
-		type: "POST",
+		type: "GET",
 		url: "/tiempo",
 		dataType: "json",
 		data: formData,
