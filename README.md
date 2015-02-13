@@ -45,7 +45,11 @@ Las paginas web más potentes suelen proporcionar APIs para que usuarios externo
 |Enlaces Prestashop|
 ____________________
 http://howtolearn.me/how-create-online-store-free-prestashop-openshift/
+
 http://tiendakelo-kelotienda.rhcloud.com/es/
+
 http://tiendakelo-kelotienda.rhcloud.com/install-dev/index.php
+
 http://tiendakelo-kelotienda.rhcloud.com/admin-dev/index.php?controller=AdminProducts&token=2c9bd43f88a616e3a29480ea384f52fb
+
 http://tiendakelo-kelotienda.rhcloud.com/admin-dev/index.php?controller=AdminLogin&token=d3a549c621a32fd42833691a295f1943&redirect=AdminModules
