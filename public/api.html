@@ -4,6 +4,7 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<link rel="shorcut icon" href="images/imagewine.png">
 	<link rel="stylesheet" href="css/index.css" />
+	<link rel="stylesheet" href="css/api.css" />
 	<link rel="stylesheet" type="text/css" href="admin/css-admin/responsiveform.css">
 	<link rel="stylesheet" media="screen and (max-width: 1200px) and (min-width: 601px)" href="admin/css-admin/responsiveform1.css" />
 	<link rel="stylesheet" media="screen and (max-width: 600px) and (min-width: 351px)" href="admin/css-admin/responsiveform2.css" />
@@ -24,11 +25,14 @@
 		</nav>
 		</div>
 	</section>
-	<form id="about">
-		<label>API</label>
-	    <p class="justificado"></p>
-		<p class="justificado"></p>
-		<p class="justificado"></p>
+	<form id="apiform" >
+		<h1> API </h1>
+		<p>Api Viñedos</p>
+        <input type="text" class="api" value="http://kelo-kelovinos.rhcloud.com/api" width="50px;" readonly>
+        <p>Api Vinos Viñedo</p>
+        <input type="text" class="api" value="http://kelo-kelovinos.rhcloud.com/api/vino/{NOMBREVIÑEDO}"  width="50px;" readonly>
+        <p>Api Viñedo Informacion</p>
+        <input type="text" class="api" value="http://kelo-kelovinos.rhcloud.com/api/vinedo/{NOMBREVIÑEDO}"  width="50px;" readonly>
 		<p class="justificado">Jon Zabaleta, Unai Urkiola, Alexander Altzibar</p>
 	</form>
 </body>
