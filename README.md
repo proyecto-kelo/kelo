@@ -11,25 +11,39 @@ Los viñedos se podrán buscar de dos maneras:
 
 Justificación
 ====
-Vemos necesario la creación de una aplicación web que recopile todas los viñedos de la rioja y los alrededores en una misma pagina y a su vez, vender el vino.
+Vemos necesario la creación de una aplicación web que recopile todas los viñedos de la rioja y los alrededores en una misma pagina y a su vez, vender su producto, el vino.
 
 Objetivos
 ====
-___________
+
 |Generales|
+___________
 
-Informar a cerca de los viñedos y a cercar el producto a la gente a través de la tienda.
+Informar a cerca de los viñedos y a cercar el producto a la gente a través de la tienda y la información proporcionada en la web.
 
-_____________
+
 |Especificos|
+_____________
 
-Cada viñedo será representado por su localización, nombre, información, fotos, mapas...
+Cada viñedo será representado por su localización, nombre, información, fotos, vinos (tinto, blanco, rosado)...
 
-La pagina/app en sí, tiene como idea principal, formentar (darse a conocer) la rioja y su producto, el vino. Y a su vez, valorarlo.
+La pagina/app en sí, tiene como idea principal, dar a conocer la rioja y su producto, el vino. Y a su vez, valorarlo.
 
-Una tienda online de los productos (el vino), bien haciendo packs u ofertas o bien botellas sueltas/unitarias.
+Una tienda online de los productos (los vinos), botellas sueltas/unitarias clasificadas en tres tipos: Tinto, Blanco y Rosado. Y como es lógico, por viñedos.
 
 
+|Administración|
+________________
+
+Como cualquier aplicacion web digna de hoy en día, la pagina se puede modificar por un administrador. De esa manera, se podrán añadir, eliminar y modificar vinos sin tener que ir a la base de datos directamente.
+
+|API|
+_____
+Las paginas web más potentes suelen proporcionar APIs para que usuarios externos puedan utilizar nuestra información.
+
+
+|Enlaces Prestashop|
+____________________
 http://howtolearn.me/how-create-online-store-free-prestashop-openshift/
 http://tiendakelo-kelotienda.rhcloud.com/es/
 http://tiendakelo-kelotienda.rhcloud.com/install-dev/index.php
